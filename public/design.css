@@ -1063,6 +1063,40 @@ a.ui-card:hover {
   font-size: 22px;
 }
 
+/* ---------- The slogan: "Ve bir kedisi var." ---------- */
+
+/* The slogan, right under the title: a little tilted, like a note stuck on, with a paw either side. */
+.ui-slogan {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: -6px 0 2px;
+  padding: 8px 20px;
+  border: 1px solid var(--ui-hair);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 1px 0 var(--ui-edge), var(--ui-shadow-1);
+  color: var(--ink);
+  font: 800 clamp(20px, 2.2vw, 26px) / 1.2 var(--ui-display);
+  rotate: -2deg;
+}
+
+.ui-slogan__paw {
+  width: 22px;
+  height: 22px;
+  background: var(--brand);
+  -webkit-mask: url("assets/paw.svg") center / contain no-repeat;
+  mask: url("assets/paw.svg") center / contain no-repeat;
+}
+
+.ui-slogan__paw:first-child {
+  rotate: -18deg;
+}
+
+.ui-slogan__paw:last-child {
+  rotate: 18deg;
+}
+
 /* ---------- The phone menu ---------- */
 
 .ui-nav__mobile {

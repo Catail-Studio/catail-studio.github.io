@@ -8,38 +8,6 @@
   margin: 0;
 }
 
-/* The slogan, right under the title: a little tilted, like a note stuck on, with a paw either side. */
-.catail-slogan {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin: -6px 0 2px;
-  padding: 8px 20px;
-  border: 1px solid var(--ui-hair);
-  border-radius: 999px;
-  background: var(--surface);
-  box-shadow: inset 0 1px 0 var(--ui-edge), var(--ui-shadow-1);
-  color: var(--ink);
-  font: 800 clamp(20px, 2.2vw, 26px) / 1.2 var(--ui-display);
-  rotate: -2deg;
-}
-
-.catail-slogan__paw {
-  width: 22px;
-  height: 22px;
-  background: var(--brand);
-  -webkit-mask: url("assets/paw.svg") center / contain no-repeat;
-  mask: url("assets/paw.svg") center / contain no-repeat;
-}
-
-.catail-slogan__paw:first-child {
-  rotate: -18deg;
-}
-
-.catail-slogan__paw:last-child {
-  rotate: 18deg;
-}
-
 /* The queue playing itself, big, with the hero cat sat on its top edge. */
 .catail-hero__stage {
   position: relative;
