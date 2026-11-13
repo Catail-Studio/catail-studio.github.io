@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="tr" data-cat="orange">
+  <head>
+    <!-- include head -->
+    <title>Catail sürümleri</title>
+    <meta name="description" content="Catail'in yayımlanmış tüm sürümleri, sürüm notları ve doğrudan indirme bağlantıları." />
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}releases.css" />
+    <script type="module" src="{{root}}app.js"></script>
+    <script type="module" src="{{root}}releases-page.js"></script>
+    <link rel="stylesheet" href="{{root}}design.css" />
+    <script type="module" src="{{root}}ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#liste">Sürüm listesine geç</a>
+
+    <!-- include nav -->
+
+    <main class="rel wrap">
+      <div class="rel__head">
+        <p class="eyebrow">Sürüm geçmişi</p>
+        <h1>Tüm sürümler</h1>
+        <p class="lead">
+          Her sürümün kurulum dosyası burada. En yenisini kurman yeterli; eski bir sürüme dönmek istersen onu da
+          buradan indirebilirsin. Kurulu Catail yeni sürümleri kendisi de haber verir.
+        </p>
+      </div>
+
+      <p class="rel__status" data-status>Sürümler yükleniyor…</p>
+      <ol class="rel__list" id="liste" data-list></ol>
+
+      <p class="rel__foot">
+        Eski sürümler de imzasız. Windows uyarı verirse ne yapacağın
+        <a href="./#smartscreen">ana sayfada anlatılıyor</a>.
+      </p>
+    </main>
+
+    <!-- include footer -->
+  </body>
+</html>

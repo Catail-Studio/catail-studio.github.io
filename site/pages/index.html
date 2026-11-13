@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="tr" data-cat="orange">
+  <head>
+    <!-- include head -->
+    <title>Catail Studio: Windows için kedili küçük araçlar</title>
+    <meta
+      name="description"
+      content="Catail Studio, Windows için açık kaynaklı, reklamsız, hesap istemeyen ve bilgisayarında yerel çalışan küçük araçlar yapar. İlki Catail: ekran görüntülerini sıraya diz, tek Ctrl+V ile yapıştır."
+    />
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}design.css" />
+    <link rel="stylesheet" href="{{root}}studio.css" />
+    <script type="module" src="{{root}}app.js"></script>
+    <script type="module" src="{{root}}ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#urunler">Ürünlere geç</a>
+
+    <!-- include nav -->
+
+    <main>
+      <!-- ===== Top: what the studio makes ===== -->
+      <section class="ui-container studio-hero">
+        <div class="ui-showcase ui-hero">
+          <span class="ui-showcase__ear ui-showcase__ear--left" aria-hidden="true"></span>
+          <span class="ui-showcase__ear ui-showcase__ear--right" aria-hidden="true"></span>
+          <span class="ui-eyebrow">Catail Studio</span>
+          <div class="ui-whiskered">
+            <h1 class="ui-title ui-title--display">Windows için <mark>kedili</mark><br />
+              <span class="ui-cheeks"><svg class="ui-whiskers ui-whiskers--left" viewBox="0 0 120 60" aria-hidden="true"><path d="M118 22C84 12 46 8 4 14M118 30C80 28 42 30 2 38M118 38C84 44 50 52 12 60" /></svg>küçük araçlar.<svg class="ui-whiskers ui-whiskers--right" viewBox="0 0 120 60" aria-hidden="true"><path d="M118 22C84 12 46 8 4 14M118 30C80 28 42 30 2 38M118 38C84 44 50 52 12 60" /></svg></span>
+            </h1>
+          </div>
+          <div class="ui-actions ui-actions--center">
+            <a class="ui-button ui-button--secondary ui-button--large studio-hero__go" href="#urunler">Ürünlere bak</a>
+          </div>
+          <!-- include cat-parade -->
+          <p class="studio-parade__hint">Bir kedi seç, site onun renklerine bürünsün.</p>
+        </div>
+      </section>
+
+      <!-- ===== Products: Catail first, then what's coming ===== -->
+      <section class="ui-section ui-container" id="urunler">
+        <div class="ui-heading">
+          <span class="ui-eyebrow">Ürünler</span>
+          <h2 class="ui-title">İlk kedimiz: Catail.</h2>
+          <p class="ui-lead">Ekran görüntülerini, metinleri ve dosyaları sıraya dizer; tek Ctrl+V ile hepsini aldığın sırayla yapıştırır.</p>
+        </div>
+
+        <article class="ui-card studio-feature">
+          <div class="studio-feature__text">
+            <div class="studio-feature__name">
+              <img src="{{root}}assets/icon-128.png" alt="" width="56" height="56" />
+              <div>
+                <h3>Catail</h3>
+                <span>Windows 10 ve 11 · ücretsiz · MIT</span>
+              </div>
+            </div>
+            <ul class="ui-checks">
+              <li>Ekran görüntüsü, kopyalanan metin ve dosyalar tek kuyrukta</li>
+              <li>Tek Ctrl+V ile hepsi aldığın sırayla yapıştırılır</li>
+              <li>Çizim, QR okuma, yazı tanıma (OCR), ZIP ve PDF</li>
+              <li>16 dil ve beş kedi teması; sayfa da seçtiğin kediye bürünür</li>
+            </ul>
+            <div class="ui-actions">
+              <a class="ui-button ui-button--primary" data-download href="https://github.com/umutugrasan/catail/releases/latest">İndir</a>
+              <a class="ui-button ui-button--quiet" href="{{to:catail/index.html}}">Catail'i incele</a>
+            </div>
+          </div>
+          <a class="ui-frame studio-feature__shot" href="{{to:catail/index.html}}" aria-label="Catail'in sayfası">
+            <span class="ui-frame__bar"><span class="ui-frame__dots"><i></i><i></i><i></i></span>Catail</span>
+            <img src="{{root}}assets/shots/settings.png" width="1240" height="650" loading="lazy" alt="Catail'in ayarlar penceresinde kedi seçimi" />
+          </a>
+        </article>
+
+        <div class="ui-grid ui-grid--2 studio-next">
+          <div class="ui-card ui-card--product ui-card--soon">
+            <div class="ui-card__top">
+              <img class="ui-card__icon" src="{{root}}assets/icon-128.png" alt="" width="56" height="56" />
+              <span class="ui-badge ui-badge--soon">Yakında</span>
+            </div>
+            <h3>Sıradaki kedi</h3>
+            <p>Stüdyonun ikinci küçük aracı üzerinde çalışıyoruz. Hazır olunca burada olacak.</p>
+          </div>
+          <a class="ui-card ui-card--product ui-card--soon ui-card--hover" href="https://github.com/umutugrasan/catail/issues">
+            <div class="ui-card__top">
+              <img class="ui-card__icon" src="{{root}}assets/icon-128.png" alt="" width="56" height="56" />
+              <span class="ui-badge ui-badge--soon">Fikir</span>
+            </div>
+            <h3>Bir kedi daha</h3>
+            <p>Hangi küçük aracı isterdin? GitHub'da yaz, sıradaki kedi o olabilir.</p>
+            <span class="ui-button ui-button--quiet">Öneri yaz</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== Built in the open ===== -->
+      <section class="ui-section ui-container" id="acik">
+        <div class="ui-heading ui-heading--center">
+          <span class="ui-eyebrow">Açık geliştirme</span>
+          <h2 class="ui-title">Her şey göz önünde.</h2>
+          <p class="ui-lead">
+            Kod, hatalar, fikirler ve sürüm notları herkese açık. Bir şey bozulursa ya da aklına bir araç gelirse yaz; hepsini
+            okuyoruz.
+          </p>
+        </div>
+        <div class="ui-grid ui-grid--3">
+          <a class="ui-card ui-card--hover studio-link" href="https://github.com/umutugrasan/catail">
+            <span class="ui-tile">
+              <!-- include github-icon -->
+            </span>
+            <h3>Kaynak kodu</h3>
+            <p>Her satır GitHub'da. Yıldız bırakmak da bize iyi gelir.</p>
+            <span class="ui-button ui-button--quiet">GitHub'da aç</span>
+          </a>
+          <a class="ui-card ui-card--hover studio-link" href="https://github.com/umutugrasan/catail/issues/new">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5M10.3 3.9 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /></svg></span>
+            <h3>Hata bildir</h3>
+            <p>Bir şey beklediğin gibi çalışmadıysa ne olduğunu yaz, düzeltelim.</p>
+            <span class="ui-button ui-button--quiet">Bildir</span>
+          </a>
+          <a class="ui-card ui-card--hover studio-link" href="{{to:catail/surumler.html}}">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h4" /></svg></span>
+            <h3>Sürüm notları</h3>
+            <p>Her sürümde ne değişti, hepsi tek sayfada. Eski sürümler de orada.</p>
+            <span class="ui-button ui-button--quiet">Sürümler</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== Last call ===== -->
+      <section class="ui-container">
+        <div class="ui-cta">
+          <h2 class="ui-title">İlk kedimizle tanış.</h2>
+          <p class="ui-lead">Catail ücretsiz, açık kaynak ve bir kısayol uzağında.</p>
+          <div class="ui-actions ui-actions--center">
+            <a class="ui-button ui-button--primary ui-button--large" data-download href="https://github.com/umutugrasan/catail/releases/latest">
+              <!-- include windows-icon -->
+              <span class="ui-button__text"><span>Windows için indir</span><small data-download-meta>En son sürüm</small></span>
+            </a>
+            <a class="ui-button ui-button--secondary" href="{{to:catail/index.html}}">Catail'i incele</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- include footer -->
+
+    <!-- include old-anchors -->
+  </body>
+</html>

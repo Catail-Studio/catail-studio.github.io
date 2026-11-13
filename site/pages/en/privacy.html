@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-cat="orange">
+  <head>
+    <!-- include head -->
+    <title>Privacy · Catail Studio</title>
+    <meta
+      name="description"
+      content="What Catail Studio's tools and this site keep, where, and when and where they go online. No telemetry, no account, no cookies."
+    />
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}design.css" />
+    <script type="module" src="{{root}}app.js"></script>
+    <script type="module" src="{{root}}ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#text">Skip to the text</a>
+
+    <!-- include nav -->
+
+    <main class="ui-container ui-doc" id="text">
+      <header class="ui-doc__head">
+        <span class="ui-eyebrow">Privacy</span>
+        <h1 class="ui-title">Short and plain.</h1>
+        <p class="ui-lead">
+          We don't collect anything from you. Below, one by one: what each tool and this site keep and where, and when and
+          where they go online.
+        </p>
+        <p class="ui-doc__date">Last updated: November 13, 2026</p>
+      </header>
+
+      <section class="ui-card ui-doc__summary">
+        <h2>In short</h2>
+        <ul class="ui-checks">
+          <li>No account: none of our tools asks you to sign up, give an email or log in.</li>
+          <li>No telemetry, no ads, no usage analytics.</li>
+          <li>No cookies on this site, no visitor tracking.</li>
+          <li>Everything you collect in our tools stays on your computer.</li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part" id="catail">
+        <h2>Catail</h2>
+
+        <h3>What it keeps on your computer</h3>
+        <ul>
+          <li><strong>Settings:</strong> in <code>%APPDATA%\Catail\settings.json</code>.</li>
+          <li>
+            <strong>Queued images:</strong> in the temp folder (<code>%TEMP%\catail\</code>). They are deleted when the app
+            closes; anything left behind is cleared the next time it starts.
+          </li>
+          <li>
+            <strong>Queued files:</strong> only the file's path is kept. Catail never copies, changes or deletes the original.
+          </li>
+        </ul>
+
+        <h3>The clipboard</h3>
+        <p>
+          Catail only watches the clipboard while text mode is on; what you copy then joins the queue. Copies that password
+          managers mark as "keep out of history" are skipped. After pasting, whatever was on your clipboard before is put back.
+        </p>
+
+        <h3>The two moments it goes online</h3>
+        <ul>
+          <li>
+            <strong>Checking for a new version:</strong> at startup it reads the release file on GitHub. That's an ordinary
+            download request; nothing about you is sent, though, as with any connection, GitHub sees your IP address.
+          </li>
+          <li>
+            <strong>Translation:</strong> only when you press Translate is the text you picked sent to Google Translate. If you
+            don't press it, no text leaves your computer.
+          </li>
+        </ul>
+        <p>
+          Apart from these, Catail doesn't go online. Text recognition (OCR) uses Windows' own engine, and QR codes are read on
+          your device. If you choose to open the address in a QR code, your browser opens it; Catail doesn't visit it itself.
+        </p>
+      </section>
+
+      <section class="ui-doc__part" id="site">
+        <h2>This website</h2>
+        <ul>
+          <li><strong>Cookies:</strong> none. No visitor counter, ads or tracking code either.</li>
+          <li>
+            <strong>What it keeps in your browser:</strong> the cat you picked, plus the release list and the GitHub counts (a
+            cache of a few minutes, to make fewer requests). All of it stays in your browser's own storage; none is sent to us.
+          </li>
+          <li>
+            <strong>Outside addresses it connects to:</strong> Google Fonts for the typefaces; GitHub for the release list and
+            the download and star counts. Download buttons fetch the file straight from GitHub.
+          </li>
+          <li>
+            <strong>Server logs:</strong> like any website, the server hosting this site may keep technical access logs (IP
+            address, time, page asked for). We don't use them for ads or profiling.
+          </li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part">
+        <h2>Questions and changes</h2>
+        <p>
+          If this text changes, we update its date and say so in the release notes. If something's wrong,
+          <a href="https://github.com/umutugrasan/catail/issues">tell us on GitHub</a>. All the code is open, so you can
+          <a href="https://github.com/umutugrasan/catail">check all of the above yourself</a>.
+        </p>
+      </section>
+    </main>
+
+    <!-- include footer -->
+  </body>
+</html>

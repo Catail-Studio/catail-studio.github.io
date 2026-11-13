@@ -1,0 +1,160 @@
+<!doctype html>
+<!-- The picture a shared link shows (1200 × 630). site/share.mjs opens this as card.html?kind=…&lang=…
+     and saves a screenshot of it into public/assets/share/. -->
+<html lang="tr" data-cat="orange">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="../../public/style.css" />
+    <style>
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 430px;
+        align-items: center;
+        gap: 40px;
+        padding: 0 72px;
+        box-sizing: border-box;
+        background:
+          radial-gradient(60% 80% at 85% 70%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 70%),
+          var(--bg);
+        color: var(--ink);
+        font-family: var(--body);
+      }
+
+      .copy {
+        display: grid;
+        gap: 22px;
+      }
+
+      .logo {
+        height: 40px;
+        width: auto;
+      }
+
+      .name {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .name img {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.35);
+      }
+
+      .name b {
+        font: 800 56px/1 var(--display);
+      }
+
+      h1 {
+        margin: 0;
+        font: 800 62px/1.02 var(--display);
+        letter-spacing: -0.02em;
+      }
+
+      h1 mark {
+        padding: 0 0.06em;
+        background: linear-gradient(transparent 64%, var(--accent) 64% 88%, transparent 88%);
+        color: inherit;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font: 700 24px/1.35 var(--body);
+      }
+
+      .art {
+        position: relative;
+        display: grid;
+        place-items: end center;
+        height: 100%;
+        padding-bottom: 70px;
+        box-sizing: border-box;
+      }
+
+      .art .cat {
+        width: 360px;
+      }
+
+      .parade {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 6px;
+        width: 430px;
+        padding-bottom: 60px;
+      }
+
+      .parade .cat {
+        width: 130px;
+      }
+
+      .site {
+        position: absolute;
+        bottom: 34px;
+        left: 72px;
+        color: var(--muted);
+        font: 800 20px/1 var(--body);
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="copy">
+      <img class="logo" src="../../public/assets/catail-studio.png" alt="" data-for="studio" />
+      <div class="name" data-for="catail">
+        <img src="../../public/assets/icon-128.png" alt="" />
+        <b>Catail</b>
+      </div>
+      <h1 data-text="title"></h1>
+      <p data-text="lead"></p>
+    </div>
+    <div class="art">
+      <span class="cat" data-for="catail"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+      <div class="parade" data-for="studio">
+        <span class="cat" data-cat="orange"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+        <span class="cat" data-cat="gray"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+        <span class="cat" data-cat="white"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+        <span class="cat" data-cat="calico"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+        <span class="cat" data-cat="black"><span class="cat__body"></span><span class="cat__foot cat__foot--left"></span><span class="cat__foot cat__foot--right"></span></span>
+      </div>
+    </div>
+    <span class="site">Catail Studio</span>
+
+    <script>
+      const WORDS = {
+        studio: {
+          tr: { title: "Windows için <mark>kedili</mark> küçük araçlar.", lead: "Açık kaynak, reklamsız, hesap istemeyen, bilgisayarında yerel çalışan." },
+          en: { title: "Small Windows tools, <mark>with cats</mark>.", lead: "Open source, no ads, no account, running on your own computer." },
+        },
+        catail: {
+          tr: { title: "Ekran görüntülerini sıraya diz, <mark>tek Ctrl+V</mark> ile yapıştır.", lead: "Ücretsiz ve açık kaynak · Windows 10 ve 11" },
+          en: { title: "Queue up your screenshots, paste them with <mark>one Ctrl+V</mark>.", lead: "Free and open source · Windows 10 and 11" },
+        },
+      };
+      const params = new URLSearchParams(location.search);
+      const kind = params.get("kind") === "catail" ? "catail" : "studio";
+      const lang = params.get("lang") === "en" ? "en" : "tr";
+      document.documentElement.lang = lang;
+      for (const el of document.querySelectorAll("[data-for]")) if (el.dataset.for !== kind) el.remove();
+      document.querySelector('[data-text="title"]').innerHTML = WORDS[kind][lang].title;
+      document.querySelector('[data-text="lead"]').textContent = WORDS[kind][lang].lead;
+      if (kind === "studio") document.querySelector(".site").remove();
+    </script>
+  </body>
+</html>

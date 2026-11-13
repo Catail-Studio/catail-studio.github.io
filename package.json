@@ -1,0 +1,11 @@
+{
+  "name": "catail-studio-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node site/build.mjs",
+    "check": "node site/build.mjs --check",
+    "serve": "python -m http.server 5180 --directory public",
+    "share": "node site/share.mjs"
+  }
+}

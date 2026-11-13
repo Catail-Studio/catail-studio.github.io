@@ -1,0 +1,30 @@
+{
+  "origin": "https://catail-studio.github.io/",
+  "pages": [
+    {
+      "tr": "index.html",
+      "en": "en/index.html"
+    },
+    {
+      "tr": "gizlilik.html",
+      "en": "en/privacy.html"
+    },
+    {
+      "tr": "catail/index.html",
+      "en": "en/catail/index.html",
+      "product": "catail"
+    },
+    {
+      "tr": "catail/surumler.html",
+      "en": "en/catail/releases.html",
+      "product": "catail"
+    }
+  ],
+  "redirects": {
+    "surumler.html": "catail/surumler.html",
+    "en/releases.html": "en/catail/releases.html"
+  },
+  "handWritten": [
+    "_tasarim.html"
+  ]
+}

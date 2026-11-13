@@ -1,0 +1,235 @@
+<!doctype html>
+<!-- Built by site/build.mjs from site/pages/gizlilik.html. Edit that file, then run: npm run build -->
+<html lang="tr" data-cat="orange">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7b3cf" />
+    <link rel="canonical" href="https://catail-studio.github.io/gizlilik.html" />
+    <link rel="alternate" hreflang="tr" href="https://catail-studio.github.io/gizlilik.html" />
+    <link rel="alternate" hreflang="en" href="https://catail-studio.github.io/en/privacy.html" />
+    <link rel="alternate" hreflang="x-default" href="https://catail-studio.github.io/en/privacy.html" />
+    <link rel="icon" href="assets/icon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/icon-128.png" />
+    <script>
+      // Before the first paint, so a returning visitor doesn't see the wrong cat flash by.
+      document.documentElement.classList.add("js");
+      try {
+        var cat = localStorage.getItem("catail.site.cat");
+        if (/^(orange|gray|white|calico|black)$/.test(cat)) document.documentElement.dataset.cat = cat;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Catail Studio" />
+    <meta property="og:title" content="Gizlilik · Catail Studio" />
+    <meta property="og:description" content="Catail Studio'nun araçları ve bu site neyi nerede tutar, internete ne zaman ve nereye bağlanır. Telemetri yok, hesap yok, çerez yok." />
+    <meta property="og:url" content="https://catail-studio.github.io/gizlilik.html" />
+    <meta property="og:image" content="https://catail-studio.github.io/assets/share/studio-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Gizlilik · Catail Studio</title>
+    <meta
+      name="description"
+      content="Catail Studio'nun araçları ve bu site neyi nerede tutar, internete ne zaman ve nereye bağlanır. Telemetri yok, hesap yok, çerez yok."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="design.css" />
+    <script type="module" src="app.js"></script>
+    <script type="module" src="ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#metin">Metne geç</a>
+
+    <header class="ui-nav">
+      <div class="ui-container ui-nav__inner">
+        <a class="ui-nav__brand" href="./" aria-label="Catail Studio ana sayfa">
+          <img class="logo logo--dark-ink" src="assets/catail-studio.png" alt="Catail Studio" width="176" height="26" />
+          <img class="logo logo--light-ink" src="assets/catail-studio-light.png" alt="" width="176" height="26" />
+        </a>
+        <nav class="ui-nav__links" aria-label="Site">
+          <details class="ui-nav__menu">
+            <summary>Ürünler</summary>
+            <div class="ui-nav__panel">
+              <a class="ui-nav__item" href="catail/">
+                <img src="assets/icon-128.png" alt="" width="40" height="40" />
+                <span><strong>Catail</strong><span>Ekran görüntüsü, metin ve dosya kuyruğu</span></span>
+              </a>
+              <a class="ui-nav__item ui-nav__item--soon" href="./#urunler">
+                <img src="assets/icon-128.png" alt="" width="40" height="40" />
+                <span><strong>Sıradaki kedi <span class="ui-badge ui-badge--soon">Yakında</span></strong><span>Stüdyonun ikinci küçük aracı</span></span>
+              </a>
+            </div>
+          </details>
+          <a href="catail/#ozellikler">Özellikler</a>
+          <a href="catail/surumler.html">Sürümler</a>
+          <a href="gizlilik.html">Gizlilik</a>
+          <a href="catail/#sss">Sorular</a>
+        </nav>
+        <div class="ui-nav__end">
+          <a class="ui-nav__lang" href="en/privacy.html" hreflang="en" lang="en" title="English">EN</a>
+          <a class="ui-icon-link" href="https://github.com/umutugrasan/catail" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z" /></svg>
+          </a>
+          <details class="ui-nav__mobile">
+            <summary aria-label="Menü"><span></span></summary>
+            <nav class="ui-nav__sheet" aria-label="Site">
+              <a href="catail/">Catail</a>
+              <a href="catail/#ozellikler">Özellikler</a>
+              <a href="catail/surumler.html">Sürümler</a>
+              <a href="gizlilik.html">Gizlilik</a>
+              <a href="catail/#sss">Sorular</a>
+              <a href="https://github.com/umutugrasan/catail">GitHub</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main class="ui-container ui-doc" id="metin">
+      <header class="ui-doc__head">
+        <span class="ui-eyebrow">Gizlilik</span>
+        <h1 class="ui-title">Kısa ve açık.</h1>
+        <p class="ui-lead">
+          Senden hiçbir şey toplamıyoruz. Aşağıda her aracın ve bu sitenin neyi nerede tuttuğunu, internete ne zaman ve
+          nereye bağlandığını tek tek yazdık.
+        </p>
+        <p class="ui-doc__date">Son güncelleme: 13 Kasım 2026</p>
+      </header>
+
+      <section class="ui-card ui-doc__summary">
+        <h2>Özet</h2>
+        <ul class="ui-checks">
+          <li>Hesap yok: hiçbir aracımız kayıt, e-posta ya da giriş istemez.</li>
+          <li>Telemetri, reklam ve kullanım analizi yok.</li>
+          <li>Bu sitede çerez yok, ziyaretçi izleme yok.</li>
+          <li>Araçlarda topladığın her şey bilgisayarında kalır.</li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part" id="catail">
+        <h2>Catail</h2>
+
+        <h3>Bilgisayarında tuttukları</h3>
+        <ul>
+          <li><strong>Ayarlar:</strong> <code>%APPDATA%\Catail\settings.json</code> dosyasında.</li>
+          <li>
+            <strong>Kuyruktaki görseller:</strong> geçici klasörde (<code>%TEMP%\catail\</code>). Uygulama kapanınca silinir;
+            kapanmadan kalan eski klasörler bir sonraki açılışta temizlenir.
+          </li>
+          <li>
+            <strong>Kuyruğa eklenen dosyalar:</strong> yalnızca dosyanın yolu tutulur. Catail özgün dosyayı kopyalamaz,
+            değiştirmez, silmez.
+          </li>
+        </ul>
+
+        <h3>Pano</h3>
+        <p>
+          Catail panoyu yalnızca metin modu açıkken dinler; o sırada kopyaladıkların kuyruğa girer. Şifre yöneticilerinin
+          "geçmişe alınmasın" diye işaretlediği kopyalar alınmaz. Yapıştırmadan sonra panonda önceden ne varsa geri konur.
+        </p>
+
+        <h3>İnternete bağlandığı iki an</h3>
+        <ul>
+          <li>
+            <strong>Yeni sürüm denetimi:</strong> açılışta GitHub'daki sürüm dosyası okunur. Bu sıradan bir indirme isteğidir;
+            senden bir bilgi gönderilmez, yalnızca her bağlantıda olduğu gibi IP adresin GitHub'a görünür.
+          </li>
+          <li>
+            <strong>Çeviri:</strong> yalnızca Çevir'e bastığında, seçtiğin metin Google Çeviri'ye gönderilir. Basmazsan hiçbir
+            metin dışarı çıkmaz.
+          </li>
+        </ul>
+        <p>
+          Bunların dışında Catail internete bağlanmaz. Yazı tanıma (OCR) Windows'un kendi motoruyla, QR okuma da cihazda
+          yapılır. Bir QR kodundaki adresi açmak istersen tarayıcın açılır; Catail o adrese kendisi gitmez.
+        </p>
+      </section>
+
+      <section class="ui-doc__part" id="site">
+        <h2>Bu web sitesi</h2>
+        <ul>
+          <li><strong>Çerez:</strong> yok. Ziyaretçi sayacı, reklam ya da izleme kodu da yok.</li>
+          <li>
+            <strong>Tarayıcında sakladıkları:</strong> seçtiğin kedi, bir de sürüm listesi ile GitHub sayıları (birkaç dakikalık
+            önbellek, istek sayısını azaltmak için). Hepsi tarayıcının kendi deposunda durur, bize gönderilmez.
+          </li>
+          <li>
+            <strong>Bağlandığı dış adresler:</strong> yazı tipleri için Google Fonts; sürüm listesi, indirme ve yıldız sayıları
+            için GitHub. İndirme düğmeleri dosyayı doğrudan GitHub'dan indirir.
+          </li>
+          <li>
+            <strong>Sunucu kayıtları:</strong> siteyi barındıran sunucu, her web sitesinde olduğu gibi teknik erişim kayıtları
+            (IP adresi, tarih, istenen sayfa) tutabilir. Bunları reklam ya da profil çıkarmak için kullanmayız.
+          </li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part">
+        <h2>Soru ve değişiklikler</h2>
+        <p>
+          Bu metin değişirse tarihini güncelleriz ve değişikliği sürüm notlarında yazarız. Bir sorun olursa
+          <a href="https://github.com/umutugrasan/catail/issues">GitHub'da yaz</a>. Kodun tamamı açık; yukarıda yazanları
+          <a href="https://github.com/umutugrasan/catail">kendin de doğrulayabilirsin</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="ui-footer">
+      <span class="boxcat ui-footer__cat" aria-hidden="true"><span class="boxcat__head"></span><span class="boxcat__front"></span></span>
+      <div class="ui-container">
+        <div class="ui-footer__grid">
+          <div class="ui-footer__brand">
+            <img class="logo logo--dark-ink" src="assets/catail-studio.png" alt="Catail Studio" width="190" height="28" />
+            <img class="logo logo--light-ink" src="assets/catail-studio-light.png" alt="" width="190" height="28" />
+            <span>Windows için açık kaynaklı, reklamsız, yerel çalışan ve kedili küçük araçlar.</span>
+          </div>
+          <div>
+            <h4>Ürünler</h4>
+            <ul>
+              <li><a href="catail/">Catail</a></li>
+              <li><a href="./#urunler">Yakında</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Catail</h4>
+            <ul>
+              <li><a href="catail/#ozellikler">Özellikler</a></li>
+              <li><a href="catail/surumler.html">Sürümler</a></li>
+              <li><a data-download href="https://github.com/umutugrasan/catail/releases/latest">İndir</a></li>
+              <li><a href="catail/#kod">Kaynak kodu</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Kaynaklar</h4>
+            <ul>
+              <li><a href="gizlilik.html">Gizlilik</a></li>
+              <li><a href="catail/#smartscreen">Windows uyarısı</a></li>
+              <li><a href="catail/#sss">Sorular</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Topluluk</h4>
+            <ul>
+              <li><a href="https://github.com/umutugrasan/catail">GitHub</a></li>
+              <li><a href="https://github.com/umutugrasan/catail/issues/new">Hata bildir</a></li>
+              <li><a href="https://github.com/umutugrasan/catail/issues">Öneri yaz</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ui-footer__base">
+          <span>© 2026 Catail Studio · Umut Uğraşan</span>
+          <span><a href="https://github.com/umutugrasan/catail/blob/main/LICENSE">MIT lisansı</a> · Telemetri yok · <a href="en/privacy.html" hreflang="en" lang="en">English</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

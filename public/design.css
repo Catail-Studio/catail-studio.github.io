@@ -1,0 +1,1644 @@
+/* Catail Studio's design system: the parts every page is built from. It sits on the cat palettes
+   in style.css (--bg, --ink, --brand, ... per data-cat), so each cat, the dark black one too,
+   carries through. The cats and the scenes stay cartoons; the frames round them are calm:
+   hairlines and soft shadows instead of the heavy outlines, room to breathe, a clear type scale.
+   Everything here is prefixed ui- so it can live beside the current pages until they move over. */
+
+:root {
+  /* Type. */
+  --ui-display: var(--display);
+  --ui-text: var(--body);
+  --ui-size-hero: clamp(44px, 7vw, 84px);
+  --ui-size-h1: clamp(38px, 5.6vw, 64px);
+  --ui-size-h2: clamp(32px, 4.4vw, 52px);
+  --ui-size-h3: 22px;
+  --ui-size-lead: clamp(18px, 1.6vw, 21px);
+  --ui-size-body: 17px;
+  --ui-size-small: 14.5px;
+  --ui-size-eyebrow: 13px;
+
+  /* Space: 4 px steps up to the section rhythm. */
+  --ui-1: 4px;
+  --ui-2: 8px;
+  --ui-3: 12px;
+  --ui-4: 16px;
+  --ui-5: 24px;
+  --ui-6: 32px;
+  --ui-7: 48px;
+  --ui-8: 64px;
+  --ui-section: clamp(80px, 11vw, 136px);
+  --ui-width: 1200px;
+  --ui-narrow: 760px;
+
+  /* Shape and depth. */
+  --ui-radius-s: 10px;
+  --ui-radius-m: 16px;
+  --ui-radius-l: 24px;
+  --ui-radius-xl: 32px;
+  --ui-hair: color-mix(in srgb, var(--ink) 12%, transparent);
+  --ui-hair-strong: color-mix(in srgb, var(--ink) 22%, transparent);
+  --ui-shade: color-mix(in srgb, var(--ink) 9%, transparent);
+  --ui-shadow-1: 0 1px 2px var(--ui-shade), 0 6px 16px -6px var(--ui-shade);
+  --ui-shadow-2: 0 2px 4px var(--ui-shade), 0 24px 48px -18px color-mix(in srgb, var(--ink) 28%, transparent);
+  --ui-glow: color-mix(in srgb, var(--accent) 55%, transparent);
+  --ui-tint: color-mix(in srgb, var(--accent) 22%, var(--surface));
+
+  /* Motion: short and soft; nothing bounces but the cats. */
+  --ui-ease: cubic-bezier(0.22, 0.9, 0.3, 1);
+  --ui-fast: 140ms;
+  --ui-slow: 320ms;
+}
+
+/* ---------- Layout ---------- */
+
+.ui-container {
+  width: min(var(--ui-width), 100%);
+  margin-inline: auto;
+  padding-inline: var(--ui-5);
+}
+
+.ui-section {
+  padding-block: var(--ui-section);
+}
+
+.ui-section--tint {
+  background: var(--bg-2);
+}
+
+.ui-section--tight {
+  padding-block: calc(var(--ui-section) * 0.6);
+}
+
+/* A section's heading: a small label, a big line, a sentence or two. */
+.ui-heading {
+  display: grid;
+  gap: var(--ui-4);
+  max-width: var(--ui-narrow);
+  margin-bottom: var(--ui-7);
+}
+
+.ui-heading--center {
+  justify-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ui-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-2);
+  width: fit-content;
+  padding: 5px 12px;
+  border: 1px solid var(--ui-hair);
+  border-radius: 999px;
+  background: var(--ui-tint);
+  color: var(--ink);
+  font: 800 var(--ui-size-eyebrow) / 1.2 var(--ui-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ui-title {
+  margin: 0;
+  font: 800 var(--ui-size-h2) / 1.04 var(--ui-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.ui-title--hero {
+  font-size: var(--ui-size-hero);
+  line-height: 0.98;
+}
+
+.ui-title mark {
+  padding: 0 0.08em;
+  background: linear-gradient(transparent 64%, var(--accent) 64% 88%, transparent 88%);
+  color: inherit;
+}
+
+.ui-lead {
+  margin: 0;
+  color: var(--muted);
+  font: 600 var(--ui-size-lead) / 1.55 var(--ui-text);
+  text-wrap: pretty;
+}
+
+/* ---------- Buttons ---------- */
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font: 800 16px/1.2 var(--ui-text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform var(--ui-fast) var(--ui-ease),
+    box-shadow var(--ui-fast) var(--ui-ease),
+    background-color var(--ui-slow) var(--ui-ease),
+    border-color var(--ui-slow) var(--ui-ease);
+}
+
+.ui-button:hover {
+  transform: translateY(-1px);
+}
+
+.ui-button:active {
+  transform: translateY(1px);
+}
+
+/* The one that matters: download. A little lip underneath, the last trace of the cartoon. */
+.ui-button--primary {
+  background: var(--brand);
+  color: var(--on-brand);
+  border-color: color-mix(in srgb, var(--brand) 70%, var(--ink));
+  box-shadow:
+    0 2px 0 color-mix(in srgb, var(--brand) 55%, var(--ink)),
+    0 10px 24px -10px color-mix(in srgb, var(--brand) 80%, transparent);
+}
+
+.ui-button--primary:hover {
+  box-shadow:
+    0 3px 0 color-mix(in srgb, var(--brand) 55%, var(--ink)),
+    0 16px 30px -12px color-mix(in srgb, var(--brand) 85%, transparent);
+}
+
+.ui-button--secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ui-hair-strong);
+  box-shadow: var(--ui-shadow-1);
+}
+
+.ui-button--secondary:hover {
+  border-color: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+.ui-button--quiet {
+  min-height: 0;
+  padding: 6px 2px;
+  border-radius: 6px;
+  color: var(--ink);
+}
+
+.ui-button--quiet::after {
+  content: "→";
+  transition: translate var(--ui-fast) var(--ui-ease);
+}
+
+.ui-button--quiet:hover::after {
+  translate: 3px 0;
+}
+
+.ui-button--small {
+  min-height: 36px;
+  padding: 7px 14px;
+  border-radius: 11px;
+  font-size: 14.5px;
+}
+
+/* The big download: the Windows mark, the words, and what you get underneath. */
+.ui-button--large {
+  gap: 14px;
+  min-height: 64px;
+  padding: 12px 26px 12px 20px;
+  border-radius: 18px;
+  text-align: left;
+}
+
+.ui-button__icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.ui-button > svg:not(.ui-button__icon) {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.ui-button__text {
+  display: grid;
+  gap: 2px;
+  font: 800 20px/1.15 var(--ui-display);
+}
+
+.ui-button__text small {
+  font: 700 13px/1.3 var(--ui-text);
+  opacity: 0.8;
+}
+
+.ui-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ui-3) var(--ui-4);
+}
+
+.ui-actions--center {
+  justify-content: center;
+}
+
+/* ---------- Hero: the top of a page, centred ---------- */
+
+.ui-hero {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding-top: clamp(56px, 8vw, 96px);
+  text-align: center;
+}
+
+.ui-hero .ui-lead {
+  max-width: 640px;
+}
+
+/* ---------- Badges ---------- */
+
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  color: var(--ink);
+  font: 800 12.5px/1.4 var(--ui-text);
+  white-space: nowrap;
+}
+
+.ui-badge--new {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.ui-badge--soon {
+  background: transparent;
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--ui-hair-strong);
+}
+
+.ui-badge--trust {
+  background: var(--ui-tint);
+}
+
+.ui-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ---------- Cards ---------- */
+
+.ui-card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--ui-3);
+  padding: var(--ui-6);
+  border: 1px solid var(--ui-hair);
+  border-radius: var(--ui-radius-l);
+  background: var(--surface);
+  box-shadow: var(--ui-shadow-1);
+  transition:
+    transform var(--ui-slow) var(--ui-ease),
+    box-shadow var(--ui-slow) var(--ui-ease),
+    border-color var(--ui-slow) var(--ui-ease);
+}
+
+a.ui-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ui-card--hover:hover,
+a.ui-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ui-hair-strong);
+  box-shadow: var(--ui-shadow-2);
+}
+
+.ui-card h3 {
+  margin: 0;
+  font: 800 var(--ui-size-h3) / 1.2 var(--ui-display);
+}
+
+.ui-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* A small rounded tile for a card's icon. */
+.ui-tile {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: var(--ui-tint);
+  color: var(--ink);
+}
+
+.ui-tile svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* A card that shows something moving above its words (one of the scenes). */
+.ui-card--feature {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ui-card--feature .ui-card__show {
+  position: relative;
+  min-height: 190px;
+  border-bottom: 1px solid var(--ui-hair);
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--ui-glow), transparent 70%),
+    var(--bg-2);
+}
+
+.ui-card--feature .ui-card__body {
+  display: grid;
+  gap: var(--ui-2);
+  padding: var(--ui-5) var(--ui-6) var(--ui-6);
+}
+
+/* A product in the studio's showcase. */
+.ui-card--product {
+  gap: var(--ui-4);
+}
+
+.ui-card .ui-button--quiet {
+  justify-self: start;
+}
+
+.ui-card--product .ui-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-3);
+}
+
+.ui-card--product .ui-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  box-shadow: var(--ui-shadow-1);
+}
+
+.ui-card--soon {
+  border-style: dashed;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ui-card--soon .ui-card__icon {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+/* ---------- Grids ---------- */
+
+.ui-grid {
+  display: grid;
+  gap: var(--ui-5);
+}
+
+.ui-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ui-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ui-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ---------- Pillars: four short promises over one big picture ---------- */
+
+.ui-pillars {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--ui-hair);
+  border-radius: var(--ui-radius-xl);
+  background: var(--ui-hair);
+  box-shadow: var(--ui-shadow-2);
+}
+
+.ui-pillar {
+  display: grid;
+  align-content: start;
+  gap: var(--ui-2);
+  padding: var(--ui-6);
+  background: var(--surface);
+}
+
+.ui-pillar strong {
+  display: block;
+  font: 800 28px/1.1 var(--ui-display);
+}
+
+.ui-pillar span {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.ui-pillar .ui-pillar__big {
+  margin-bottom: var(--ui-2);
+  color: var(--ink);
+  font: 800 clamp(36px, 3.8vw, 50px) / 1 var(--ui-display);
+  letter-spacing: -0.02em;
+}
+
+/* ---------- The demo frame: a window that shows the app ---------- */
+
+.ui-frame {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--ui-hair-strong);
+  border-radius: var(--ui-radius-l);
+  background: var(--surface);
+  box-shadow: var(--ui-shadow-2);
+  overflow: hidden;
+}
+
+/* A soft glow behind it, in the cat's own color. */
+.ui-stage {
+  position: relative;
+  padding: var(--ui-6);
+}
+
+.ui-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6% -4%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--ui-glow), transparent);
+  filter: blur(18px);
+}
+
+.ui-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-3);
+  height: 40px;
+  padding-inline: var(--ui-4);
+  border-bottom: 1px solid var(--ui-hair);
+  background: var(--bg-2);
+  font: 800 13px/1 var(--ui-text);
+  color: var(--muted);
+}
+
+.ui-frame__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.ui-frame__dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ui-hair-strong);
+}
+
+.ui-frame__body {
+  min-height: 280px;
+}
+
+/* ---------- Tabs: a row of pills over the panels they switch ---------- */
+
+.ui-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  margin: 0 auto var(--ui-6);
+  padding: 5px;
+  border: 1px solid var(--ui-hair);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--ui-shadow-1);
+}
+
+.ui-tabs__tab {
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: var(--muted);
+  font: 800 15px/1.2 var(--ui-text);
+  transition: background-color var(--ui-fast) var(--ui-ease), color var(--ui-fast) var(--ui-ease);
+}
+
+.ui-tabs__tab:hover {
+  color: var(--ink);
+}
+
+.ui-tabs__tab[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.ui-tabs__panel[hidden] {
+  display: none;
+}
+
+.ui-tabs__panel {
+  animation: ui-fade-up var(--ui-slow) var(--ui-ease);
+}
+
+@keyframes ui-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- "And much more": a paragraph of everything else ---------- */
+
+.ui-more {
+  max-width: 900px;
+  margin-inline: auto;
+  font: 700 clamp(22px, 2.6vw, 32px) / 1.45 var(--ui-display);
+  text-align: center;
+  color: var(--muted);
+}
+
+.ui-more b {
+  color: var(--ink);
+}
+
+/* ---------- Numbers that back it up ---------- */
+
+.ui-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--ui-5) var(--ui-8);
+}
+
+.ui-stat {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.ui-stat strong {
+  font: 800 clamp(36px, 4vw, 52px) / 1 var(--ui-display);
+}
+
+.ui-stat[hidden] {
+  display: none;
+}
+
+.ui-stats--live {
+  margin-top: var(--ui-7);
+}
+
+.ui-stats__note {
+  margin: var(--ui-4) 0 0;
+  color: var(--muted);
+  font: 600 13px/1.4 var(--ui-text);
+  text-align: center;
+}
+
+/* The note speaks of the live counts, so it waits until one of them shows. */
+.ui-stats:not(:has(.ui-stat:not([hidden]))),
+.ui-stats:not(:has(.ui-stat:not([hidden]))) + .ui-stats__note {
+  display: none;
+}
+
+.ui-heading + .ui-stats--live {
+  margin-top: 0;
+}
+
+.ui-stats__note + .ui-grid {
+  margin-top: var(--ui-7);
+}
+
+.ui-stat span {
+  color: var(--muted);
+  font: 700 14.5px/1.3 var(--ui-text);
+}
+
+/* ---------- The last call to download ---------- */
+
+.ui-cta {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--ui-5);
+  padding: clamp(56px, 8vw, 96px) var(--ui-5);
+  overflow: hidden;
+  border-radius: var(--ui-radius-xl);
+  background:
+    radial-gradient(80% 120% at 50% 110%, var(--ui-glow), transparent 70%),
+    var(--bg-2);
+  text-align: center;
+}
+
+/* ---------- Top bar ---------- */
+
+.ui-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--ui-hair);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+}
+
+.ui-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-5);
+  height: 64px;
+}
+
+.ui-nav__brand .logo {
+  width: auto;
+  height: 26px;
+}
+
+.ui-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: auto;
+}
+
+.ui-nav__links > a,
+.ui-nav__menu > summary {
+  padding: 7px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+  font: 700 15px/1.2 var(--ui-text);
+  text-decoration: none;
+  transition: color var(--ui-fast) var(--ui-ease), background-color var(--ui-fast) var(--ui-ease);
+}
+
+.ui-nav__links > a:hover,
+.ui-nav__menu > summary:hover,
+.ui-nav__menu[open] > summary {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+
+.ui-nav__menu {
+  position: relative;
+}
+
+.ui-nav__menu > summary {
+  list-style: none;
+}
+
+.ui-nav__menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ui-nav__menu > summary::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+}
+
+/* The products menu: a card of products under the bar. */
+.ui-nav__panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  display: grid;
+  gap: 4px;
+  width: 340px;
+  padding: var(--ui-2);
+  border: 1px solid var(--ui-hair);
+  border-radius: var(--ui-radius-m);
+  background: var(--surface);
+  box-shadow: var(--ui-shadow-2);
+  animation: ui-fade-up var(--ui-fast) var(--ui-ease);
+}
+
+.ui-nav__item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: var(--ui-3);
+  padding: var(--ui-2) var(--ui-3);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.ui-nav__item:hover {
+  background: var(--bg-2);
+}
+
+.ui-nav__item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.ui-nav__item strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 800 15px/1.2 var(--ui-text);
+}
+
+.ui-nav__item span {
+  display: block;
+  color: var(--muted);
+  font: 600 13.5px/1.35 var(--ui-text);
+}
+
+.ui-nav__end {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-2);
+}
+
+.ui-nav__lang {
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  font: 800 13.5px/1.2 var(--ui-text);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.ui-nav__lang:hover {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+
+.ui-icon-link {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+.ui-icon-link:hover {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+
+.ui-icon-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ---------- Footer: columns of links, the studio underneath ---------- */
+
+.ui-footer {
+  margin-top: var(--ui-section);
+  padding-block: var(--ui-8) var(--ui-6);
+  border-top: 1px solid var(--ui-hair);
+  background: var(--bg-2);
+}
+
+.ui-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+  gap: var(--ui-6);
+}
+
+.ui-footer__brand {
+  display: grid;
+  align-content: start;
+  gap: var(--ui-3);
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.ui-footer__brand img {
+  width: auto;
+  height: 28px;
+}
+
+.ui-footer h4 {
+  margin: 0 0 var(--ui-3);
+  color: var(--ink);
+  font: 800 13px/1.2 var(--ui-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ui-footer ul {
+  display: grid;
+  gap: var(--ui-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ui-footer li a {
+  color: var(--muted);
+  font: 600 15px/1.4 var(--ui-text);
+  text-decoration: none;
+}
+
+.ui-footer li a:hover {
+  color: var(--ink);
+}
+
+.ui-footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--ui-3);
+  margin-top: var(--ui-7);
+  padding-top: var(--ui-5);
+  border-top: 1px solid var(--ui-hair);
+  color: var(--muted);
+  font: 600 14px/1.4 var(--ui-text);
+}
+
+/* ---------- Where you are: Catail Studio / Catail ---------- */
+
+.ui-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font: 700 14px/1.2 var(--ui-text);
+}
+
+.ui-crumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ui-crumbs a:hover {
+  color: var(--ink);
+}
+
+.ui-crumbs a::after {
+  content: "/";
+  margin-left: 8px;
+  opacity: 0.5;
+}
+
+.ui-crumbs [aria-current] {
+  color: var(--ink);
+}
+
+/* ---------- Split: words on one side, a picture of it on the other ---------- */
+
+.ui-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: var(--ui-7);
+}
+
+.ui-split--flip > :first-child {
+  order: 2;
+}
+
+.ui-split__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--ui-4);
+}
+
+/* ---------- A list of plain facts, each with a paw ---------- */
+
+.ui-checks {
+  display: grid;
+  gap: var(--ui-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 700 16px/1.45 var(--ui-text);
+}
+
+.ui-checks li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.ui-checks li::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  -webkit-mask: url("assets/paw.svg") center / contain no-repeat;
+  mask: url("assets/paw.svg") center / contain no-repeat;
+}
+
+.ui-checks--row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--ui-2) var(--ui-5);
+  font-size: 15px;
+}
+
+/* ---------- A page of plain text: privacy and the like ---------- */
+
+.ui-doc {
+  display: grid;
+  gap: var(--ui-7);
+  max-width: var(--ui-narrow);
+  padding-block: clamp(48px, 7vw, 88px) 0;
+}
+
+.ui-doc__head {
+  display: grid;
+  justify-items: start;
+  gap: var(--ui-4);
+}
+
+.ui-doc__date {
+  margin: 0;
+  color: var(--muted);
+  font: 700 13.5px/1.4 var(--ui-text);
+}
+
+.ui-doc h2 {
+  margin: 0 0 var(--ui-4);
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.ui-doc h3 {
+  margin: var(--ui-5) 0 var(--ui-2);
+  font-size: 19px;
+}
+
+.ui-doc__part p,
+.ui-doc__part li {
+  color: var(--ink);
+  font: 500 16.5px/1.65 var(--ui-text);
+}
+
+.ui-doc__part p {
+  margin: 0 0 var(--ui-3);
+}
+
+.ui-doc__part ul {
+  display: grid;
+  gap: var(--ui-2);
+  margin: 0 0 var(--ui-3);
+  padding-left: 1.2em;
+}
+
+.ui-doc a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.ui-doc code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--bg-2);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.ui-doc__summary h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* ---------- The phone menu ---------- */
+
+.ui-nav__mobile {
+  display: none;
+}
+
+.ui-nav__mobile > summary {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--ink);
+  list-style: none;
+  cursor: pointer;
+}
+
+.ui-nav__mobile > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ui-nav__mobile > summary:hover {
+  background: var(--bg-2);
+}
+
+/* Three lines that fold into a cross. */
+.ui-nav__mobile > summary span,
+.ui-nav__mobile > summary span::before,
+.ui-nav__mobile > summary span::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--ui-fast) var(--ui-ease), background-color var(--ui-fast) var(--ui-ease);
+}
+
+.ui-nav__mobile > summary span {
+  position: relative;
+}
+
+.ui-nav__mobile > summary span::before,
+.ui-nav__mobile > summary span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.ui-nav__mobile > summary span::before {
+  transform: translateY(-6px);
+}
+
+.ui-nav__mobile > summary span::after {
+  transform: translateY(6px);
+}
+
+.ui-nav__mobile[open] > summary span {
+  background: transparent;
+}
+
+.ui-nav__mobile[open] > summary span::before {
+  transform: rotate(45deg);
+}
+
+.ui-nav__mobile[open] > summary span::after {
+  transform: rotate(-45deg);
+}
+
+/* Hangs under the whole bar (the bar is the nearest positioned box). */
+.ui-nav__sheet {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 2px;
+  padding: var(--ui-2) var(--ui-4) var(--ui-5);
+  border-bottom: 1px solid var(--ui-hair);
+  background: var(--bg);
+  box-shadow: var(--ui-shadow-2);
+  animation: ui-fade-up var(--ui-fast) var(--ui-ease);
+}
+
+.ui-nav__sheet a {
+  padding: 12px;
+  border-radius: 12px;
+  color: var(--ink);
+  font: 800 17px/1.2 var(--ui-text);
+  text-decoration: none;
+}
+
+.ui-nav__sheet a:hover,
+.ui-nav__sheet a[aria-current="page"] {
+  background: var(--bg-2);
+}
+
+.ui-nav__links > a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.ui-nav__item--soon img {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+/* ---------- The footer's cat, peeking out of its box on the edge ---------- */
+
+.ui-footer {
+  position: relative;
+}
+
+.ui-footer__cat {
+  position: absolute;
+  right: max(24px, calc(50% - 570px));
+  bottom: 100%;
+  width: 120px;
+  margin-bottom: -6px;
+}
+
+.ui-footer__base a {
+  color: inherit;
+}
+
+.ui-footer__base a:hover {
+  color: var(--ink);
+}
+
+/* ---------- Pages built on this system ---------- */
+
+/* The cartoon parts (style.css, scenes.css) draw thick ink outlines with a hard shadow. Here the
+   frames calm down to hairlines and soft shadows; the cats and the scenes inside stay cartoons. */
+.ui-page {
+  --stroke: 1px solid var(--ui-hair-strong);
+  --lift: var(--ui-shadow-2);
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 1000px) {
+  .ui-grid--4,
+  .ui-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ui-footer__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ui-footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .ui-nav__links {
+    display: none;
+  }
+
+  .ui-nav__end {
+    margin-left: auto;
+  }
+
+  .ui-nav__mobile {
+    display: block;
+  }
+
+  .ui-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ui-6);
+  }
+
+  .ui-split--flip > :first-child {
+    order: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .ui-container {
+    padding-inline: var(--ui-4);
+  }
+
+  .ui-nav__inner {
+    gap: var(--ui-3);
+  }
+
+  .ui-nav__brand .logo {
+    height: 22px;
+  }
+
+  .ui-nav__end {
+    gap: 4px;
+  }
+
+  .ui-nav__end > .ui-icon-link {
+    display: none;
+  }
+
+  .ui-footer__cat {
+    width: 96px;
+  }
+
+  .ui-grid--2,
+  .ui-grid--3,
+  .ui-grid--4,
+  .ui-pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ui-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ui-card {
+    padding: var(--ui-5);
+  }
+
+  .ui-tabs__list {
+    border-radius: var(--ui-radius-m);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button,
+  .ui-card,
+  .ui-tabs__panel,
+  .ui-nav__panel {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ---------- The "not found" page ---------- */
+
+.ui-lost {
+  min-height: 100vh;
+  align-content: center;
+  padding-block: var(--ui-7);
+}
+
+.ui-lost .ui-nav__brand {
+  margin-bottom: var(--ui-5);
+}
+
+/* The dizzy cat: it sways on its feet while four stars go round above its head, passing in
+   front of it, then behind, smaller and dimmer. */
+.ui-dizzy {
+  position: relative;
+  display: block;
+  width: 170px;
+  margin: 10px 0 4px;
+}
+
+.ui-dizzy__cat {
+  position: relative;
+  z-index: 2;
+  transform-origin: 50% 100%;
+  animation: ui-dizzy-sway 2.4s ease-in-out infinite;
+}
+
+/* Centred on the cat's head, which sits left of the middle of the picture. */
+.ui-dizzy__stars {
+  position: absolute;
+  top: -4%;
+  left: 38%;
+  width: 150px;
+  height: 46px;
+  translate: -50% 0;
+  z-index: 3;
+  animation: ui-dizzy-sway 2.4s ease-in-out infinite;
+  transform-origin: 50% 400%;
+}
+
+.ui-dizzy__stars i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  offset-path: path("M 75 38 A 70 15 0 1 1 75 8 A 70 15 0 1 1 75 38");
+  offset-rotate: 0deg;
+  animation: ui-dizzy-orbit 1.6s linear infinite;
+  animation-delay: calc(var(--n) * -0.4s);
+}
+
+.ui-dizzy__stars svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #ffd34d;
+  stroke: #c98a00;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  animation: ui-dizzy-twinkle 0.8s ease-in-out infinite alternate;
+}
+
+/* Front of the ring at the start and the end; at the back, half way, smaller and dimmer. */
+@keyframes ui-dizzy-orbit {
+  from {
+    offset-distance: 0%;
+  }
+  50% {
+    scale: 0.55;
+    opacity: 0.45;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes ui-dizzy-sway {
+  0%,
+  100% {
+    rotate: -5deg;
+  }
+  50% {
+    rotate: 5deg;
+  }
+}
+
+@keyframes ui-dizzy-twinkle {
+  to {
+    rotate: 25deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-dizzy__cat,
+  .ui-dizzy__stars,
+  .ui-dizzy__stars i,
+  .ui-dizzy__stars svg {
+    animation-play-state: paused;
+  }
+}
+
+/* ==========================================================================
+   Depth. The pages sat flat on the paper; these give them layers: a soft
+   light from above, cards that catch it on their top edge, bands that fade in
+   and out, and a framed top with a cat's ears and whiskers.
+   ========================================================================== */
+
+:root {
+  /* The thin bright line along a card's top edge, where the light catches it. */
+  --ui-edge: color-mix(in srgb, #fff 70%, transparent);
+  --ui-shadow-1: 0 1px 2px var(--ui-shade), 0 8px 20px -10px color-mix(in srgb, var(--ink) 20%, transparent);
+  --ui-shadow-2:
+    0 2px 6px var(--ui-shade),
+    0 18px 40px -18px color-mix(in srgb, var(--ink) 26%, transparent),
+    0 40px 90px -50px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+[data-cat="black"] {
+  --ui-edge: color-mix(in srgb, #fff 9%, transparent);
+}
+
+/* A soft light from the top of the page instead of the paw wallpaper everywhere. */
+body.ui-page {
+  background:
+    radial-gradient(1100px 520px at 50% -140px, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%),
+    var(--bg);
+}
+
+.ui-page main::before {
+  display: none;
+}
+
+.ui-card {
+  background: linear-gradient(180deg, var(--surface), color-mix(in srgb, var(--surface) 90%, var(--bg-2)));
+  box-shadow: inset 0 1px 0 var(--ui-edge), var(--ui-shadow-1);
+}
+
+.ui-card--soon {
+  background: color-mix(in srgb, var(--surface) 45%, transparent);
+  box-shadow: inset 0 1px 0 var(--ui-edge);
+}
+
+.ui-pillars,
+.ui-frame {
+  box-shadow: inset 0 1px 0 var(--ui-edge), var(--ui-shadow-2);
+}
+
+/* Tinted bands fade in and out rather than starting with a hard edge. */
+.ui-section--tint {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--bg-2) clamp(60px, 8vw, 120px),
+    var(--bg-2) calc(100% - clamp(60px, 8vw, 120px)),
+    transparent
+  );
+}
+
+/* ---------- Paw prints: a few, fading out toward the middle ---------- */
+
+.ui-paws {
+  position: relative;
+  isolation: isolate;
+}
+
+.ui-paws::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--accent) 60%, transparent);
+  opacity: 0.55;
+  pointer-events: none;
+  -webkit-mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 70% 65% at 50% 45%, transparent 30%, #000 80%);
+  -webkit-mask-composite: source-in;
+  mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 70% 65% at 50% 45%, transparent 30%, #000 80%);
+  mask-composite: intersect;
+}
+
+/* ---------- The showcase: a framed top with two cat ears ---------- */
+
+.ui-showcase {
+  position: relative;
+  isolation: isolate;
+  margin-top: clamp(40px, 6vw, 64px);
+  padding: clamp(56px, 8vw, 100px) clamp(20px, 5vw, 72px) clamp(36px, 5vw, 56px);
+  border: 1px solid var(--ui-hair);
+  border-radius: 44px;
+  background:
+    radial-gradient(55% 70% at 12% 105%, color-mix(in srgb, var(--accent) 38%, transparent), transparent 70%),
+    radial-gradient(55% 70% at 88% 105%, color-mix(in srgb, var(--brand) 26%, transparent), transparent 70%),
+    var(--bg-2);
+  box-shadow:
+    inset 0 1px 0 var(--ui-edge),
+    0 2px 6px var(--ui-shade),
+    0 50px 100px -60px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+/* Paw prints inside the frame, kept off the words in the middle. */
+.ui-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+  opacity: 0.45;
+  pointer-events: none;
+  -webkit-mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 58% 62% at 50% 45%, transparent 62%, #000 100%);
+  -webkit-mask-composite: source-in;
+  mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 58% 62% at 50% 45%, transparent 62%, #000 100%);
+  mask-composite: intersect;
+}
+
+/* The ears: rounded points standing on the frame's top edge, pink inside. They are cut off
+   at the edge itself, and painted one pixel past it so the frame's line doesn't cross them. */
+.ui-showcase__ear {
+  position: absolute;
+  bottom: calc(100% - 1px);
+  width: 120px;
+  height: 74px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ui-showcase__ear--left {
+  left: 13%;
+  transform: rotate(-8deg);
+  transform-origin: 50% 100%;
+}
+
+.ui-showcase__ear--right {
+  right: 13%;
+  transform: rotate(8deg);
+  transform-origin: 50% 100%;
+}
+
+.ui-showcase__ear::before,
+.ui-showcase__ear::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-radius: 18px 4px 4px 4px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.ui-showcase__ear::before {
+  top: 18px;
+  width: 84px;
+  height: 84px;
+  border: 1px solid var(--ui-hair);
+  background: var(--bg-2);
+  box-shadow: inset 1px 1px 0 var(--ui-edge);
+}
+
+.ui-showcase__ear::after {
+  top: 36px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px 3px 3px 3px;
+  background: color-mix(in srgb, var(--accent) 80%, var(--bg-2));
+}
+
+/* ---------- The big title, with whiskers beside its second line ---------- */
+
+.ui-title--display {
+  font-size: clamp(44px, 7.2vw, 100px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  /* The lines are set by hand (a <br />), so no balancing that could split them further. */
+  text-wrap: wrap;
+}
+
+/* The second line of the title, like a cat's cheeks: a whisker on either side. */
+.ui-cheeks {
+  position: relative;
+  white-space: nowrap;
+}
+
+.ui-whiskers {
+  position: absolute;
+  top: 52%;
+  width: 0.95em;
+  height: auto;
+  fill: none;
+  stroke: color-mix(in srgb, var(--ink) 38%, transparent);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  translate: 0 -50%;
+  vector-effect: non-scaling-stroke;
+}
+
+.ui-whiskers path {
+  vector-effect: non-scaling-stroke;
+}
+
+.ui-whiskers--left {
+  right: calc(100% + 0.18em);
+}
+
+.ui-whiskers--right {
+  left: calc(100% + 0.18em);
+  scale: -1 1;
+}
+
+/* The last call gets the same layered light and paw prints. */
+.ui-cta {
+  border: 1px solid var(--ui-hair);
+  box-shadow: inset 0 1px 0 var(--ui-edge), var(--ui-shadow-2);
+  isolation: isolate;
+}
+
+.ui-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+  opacity: 0.45;
+  pointer-events: none;
+  -webkit-mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 60% 70% at 50% 50%, transparent 40%, #000 90%);
+  -webkit-mask-composite: source-in;
+  mask:
+    url("assets/paw-tile.svg") 0 0 / 150px 150px,
+    radial-gradient(ellipse 60% 70% at 50% 50%, transparent 40%, #000 90%);
+  mask-composite: intersect;
+}
+
+@media (max-width: 560px) {
+  /* No room beside the title any more: the whiskers go. */
+  .ui-whiskers {
+    display: none;
+  }
+
+  .ui-cheeks {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 720px) {
+  .ui-showcase {
+    border-radius: 30px;
+  }
+
+  .ui-showcase__ear {
+    width: 64px;
+    height: 38px;
+  }
+
+  .ui-showcase__ear::before {
+    top: 10px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .ui-showcase__ear::after {
+    top: 22px;
+    width: 20px;
+    height: 20px;
+  }
+}

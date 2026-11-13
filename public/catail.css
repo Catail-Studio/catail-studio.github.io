@@ -1,0 +1,172 @@
+/* Catail's own page (catail/index.html and en/catail/): the parts only it has. The rest is
+   design.css; the scenes, the cat picker, the help box and the questions come from style.css and
+   scenes.css as they are. */
+
+/* ---------- Top ---------- */
+
+.catail-badges {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: var(--ui-2);
+}
+
+.catail-hero .hero__note a {
+  color: var(--muted);
+  font: 700 14.5px/1.4 var(--ui-text);
+}
+
+.catail-hero .mobile-note {
+  margin: 0;
+}
+
+/* The queue playing itself, big, with the hero cat sat on its top edge. */
+.catail-hero__stage {
+  position: relative;
+  width: min(1000px, 100%);
+  margin-top: var(--ui-7);
+  text-align: left;
+}
+
+.catail-hero__demo {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.catail-hero__demo .demo__body {
+  height: 380px;
+  grid-template-columns: minmax(0, 1fr) 240px;
+}
+
+.catail-hero__cat {
+  top: auto;
+  right: 64px;
+  bottom: 100%;
+  width: 112px;
+  margin-bottom: -22px;
+}
+
+/* ---------- How it works ---------- */
+
+.catail-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catail-step {
+  gap: var(--ui-3);
+}
+
+.catail-step__n {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--brand);
+  color: var(--on-brand);
+  font: 800 20px/1 var(--ui-display);
+}
+
+/* ---------- Features: two scenes to a tab ---------- */
+
+.catail-scenes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.catail-scenes .scene {
+  grid-column: auto;
+}
+
+/* A single scene beside its words (the badge, privacy). */
+.catail-solo {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 0;
+}
+
+.catail-solo .scene {
+  grid-column: 1 / -1;
+}
+
+.catail-solo .scene--dark {
+  justify-content: center;
+  padding: 36px 24px;
+  border-radius: var(--ui-radius-l);
+}
+
+.catail-solo .sc-home {
+  width: min(440px, 100%);
+}
+
+/* ---------- Cats ---------- */
+
+#temalar .themes__soon,
+#themes .themes__soon {
+  justify-self: center;
+}
+
+/* ---------- Open source ---------- */
+
+.catail-license {
+  margin: 0;
+  color: var(--muted);
+  font: 600 15px/1.5 var(--ui-text);
+}
+
+.catail-license a {
+  color: var(--ink);
+}
+
+/* ---------- Installing, and questions ---------- */
+
+.catail-help {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: var(--ui-6);
+}
+
+.catail-help .smart {
+  border-radius: var(--ui-radius-l);
+}
+
+.catail-help .faq {
+  padding: 0;
+}
+
+.catail-help .faq h3 {
+  margin-bottom: var(--ui-3);
+  font-size: 26px;
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 1000px) {
+  .catail-help {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .catail-scenes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catail-hero__demo .demo__body {
+    height: 300px;
+    grid-template-columns: minmax(0, 1fr) 150px;
+  }
+
+  .catail-hero__cat {
+    right: 20px;
+    width: 84px;
+    margin-bottom: -16px;
+  }
+
+  .catail-hero .ui-title--hero {
+    font-size: clamp(36px, 10vw, 44px);
+  }
+}

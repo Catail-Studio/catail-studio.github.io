@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="tr" data-cat="orange">
+  <head>
+    <!-- include head -->
+    <title>Gizlilik · Catail Studio</title>
+    <meta
+      name="description"
+      content="Catail Studio'nun araçları ve bu site neyi nerede tutar, internete ne zaman ve nereye bağlanır. Telemetri yok, hesap yok, çerez yok."
+    />
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}design.css" />
+    <script type="module" src="{{root}}app.js"></script>
+    <script type="module" src="{{root}}ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#metin">Metne geç</a>
+
+    <!-- include nav -->
+
+    <main class="ui-container ui-doc" id="metin">
+      <header class="ui-doc__head">
+        <span class="ui-eyebrow">Gizlilik</span>
+        <h1 class="ui-title">Kısa ve açık.</h1>
+        <p class="ui-lead">
+          Senden hiçbir şey toplamıyoruz. Aşağıda her aracın ve bu sitenin neyi nerede tuttuğunu, internete ne zaman ve
+          nereye bağlandığını tek tek yazdık.
+        </p>
+        <p class="ui-doc__date">Son güncelleme: 13 Kasım 2026</p>
+      </header>
+
+      <section class="ui-card ui-doc__summary">
+        <h2>Özet</h2>
+        <ul class="ui-checks">
+          <li>Hesap yok: hiçbir aracımız kayıt, e-posta ya da giriş istemez.</li>
+          <li>Telemetri, reklam ve kullanım analizi yok.</li>
+          <li>Bu sitede çerez yok, ziyaretçi izleme yok.</li>
+          <li>Araçlarda topladığın her şey bilgisayarında kalır.</li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part" id="catail">
+        <h2>Catail</h2>
+
+        <h3>Bilgisayarında tuttukları</h3>
+        <ul>
+          <li><strong>Ayarlar:</strong> <code>%APPDATA%\Catail\settings.json</code> dosyasında.</li>
+          <li>
+            <strong>Kuyruktaki görseller:</strong> geçici klasörde (<code>%TEMP%\catail\</code>). Uygulama kapanınca silinir;
+            kapanmadan kalan eski klasörler bir sonraki açılışta temizlenir.
+          </li>
+          <li>
+            <strong>Kuyruğa eklenen dosyalar:</strong> yalnızca dosyanın yolu tutulur. Catail özgün dosyayı kopyalamaz,
+            değiştirmez, silmez.
+          </li>
+        </ul>
+
+        <h3>Pano</h3>
+        <p>
+          Catail panoyu yalnızca metin modu açıkken dinler; o sırada kopyaladıkların kuyruğa girer. Şifre yöneticilerinin
+          "geçmişe alınmasın" diye işaretlediği kopyalar alınmaz. Yapıştırmadan sonra panonda önceden ne varsa geri konur.
+        </p>
+
+        <h3>İnternete bağlandığı iki an</h3>
+        <ul>
+          <li>
+            <strong>Yeni sürüm denetimi:</strong> açılışta GitHub'daki sürüm dosyası okunur. Bu sıradan bir indirme isteğidir;
+            senden bir bilgi gönderilmez, yalnızca her bağlantıda olduğu gibi IP adresin GitHub'a görünür.
+          </li>
+          <li>
+            <strong>Çeviri:</strong> yalnızca Çevir'e bastığında, seçtiğin metin Google Çeviri'ye gönderilir. Basmazsan hiçbir
+            metin dışarı çıkmaz.
+          </li>
+        </ul>
+        <p>
+          Bunların dışında Catail internete bağlanmaz. Yazı tanıma (OCR) Windows'un kendi motoruyla, QR okuma da cihazda
+          yapılır. Bir QR kodundaki adresi açmak istersen tarayıcın açılır; Catail o adrese kendisi gitmez.
+        </p>
+      </section>
+
+      <section class="ui-doc__part" id="site">
+        <h2>Bu web sitesi</h2>
+        <ul>
+          <li><strong>Çerez:</strong> yok. Ziyaretçi sayacı, reklam ya da izleme kodu da yok.</li>
+          <li>
+            <strong>Tarayıcında sakladıkları:</strong> seçtiğin kedi, bir de sürüm listesi ile GitHub sayıları (birkaç dakikalık
+            önbellek, istek sayısını azaltmak için). Hepsi tarayıcının kendi deposunda durur, bize gönderilmez.
+          </li>
+          <li>
+            <strong>Bağlandığı dış adresler:</strong> yazı tipleri için Google Fonts; sürüm listesi, indirme ve yıldız sayıları
+            için GitHub. İndirme düğmeleri dosyayı doğrudan GitHub'dan indirir.
+          </li>
+          <li>
+            <strong>Sunucu kayıtları:</strong> siteyi barındıran sunucu, her web sitesinde olduğu gibi teknik erişim kayıtları
+            (IP adresi, tarih, istenen sayfa) tutabilir. Bunları reklam ya da profil çıkarmak için kullanmayız.
+          </li>
+        </ul>
+      </section>
+
+      <section class="ui-doc__part">
+        <h2>Soru ve değişiklikler</h2>
+        <p>
+          Bu metin değişirse tarihini güncelleriz ve değişikliği sürüm notlarında yazarız. Bir sorun olursa
+          <a href="https://github.com/umutugrasan/catail/issues">GitHub'da yaz</a>. Kodun tamamı açık; yukarıda yazanları
+          <a href="https://github.com/umutugrasan/catail">kendin de doğrulayabilirsin</a>.
+        </p>
+      </section>
+    </main>
+
+    <!-- include footer -->
+  </body>
+</html>

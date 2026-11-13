@@ -1,0 +1,8 @@
+<script>
+  // Catail's page used to live here. Old links into it (…/#indir, …/en/#download) still work:
+  // a part this page doesn't have is looked for on Catail's page.
+  (function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (id && !document.getElementById(id)) location.replace("catail/" + location.hash);
+  })();
+</script>

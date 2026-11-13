@@ -1,0 +1,5 @@
+# Everyone is welcome. The design sample page isn't meant to be found.
+User-agent: *
+Disallow: /_tasarim.html
+
+Sitemap: https://catail-studio.github.io/sitemap.xml
