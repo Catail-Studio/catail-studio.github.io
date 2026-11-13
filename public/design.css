@@ -566,6 +566,32 @@ a.ui-card:hover {
   display: none;
 }
 
+/* Tabs that move on by themselves: a thin bar under the row, in the page's color, fills up and
+   the next tab opens (ui.js). */
+.ui-tabs__list:has(+ .ui-tabs__timer) {
+  margin-bottom: var(--ui-3);
+}
+
+.ui-tabs__timer {
+  width: min(220px, 50%);
+  height: 4px;
+  margin: 0 auto var(--ui-6);
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--ui-hair);
+}
+
+.ui-tabs__timer i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  /* ui.js moves it a step every tenth of a second; this glides between the steps. */
+  transition: transform 100ms linear;
+}
+
 .ui-tabs__panel {
   animation: ui-fade-up var(--ui-slow) var(--ui-ease);
 }

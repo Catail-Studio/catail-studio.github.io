@@ -5,6 +5,7 @@
 
 function setupTabs(root) {
   const tabs = [...root.querySelectorAll('[role="tab"]')];
+  let restartTimer = () => {};
   const select = (tab, focus = false) => {
     for (const each of tabs) {
       const on = each === tab;
@@ -14,7 +15,12 @@ function setupTabs(root) {
       if (panel) panel.hidden = !on;
     }
     if (focus) tab.focus();
+    restartTimer();
   };
+  restartTimer = setupAutoplay(root, () => {
+    const current = tabs.findIndex((tab) => tab.getAttribute("aria-selected") === "true");
+    select(tabs[(current + 1) % tabs.length]);
+  });
   for (const tab of tabs) {
     tab.addEventListener("click", () => select(tab));
     // Arrow keys move along the row, as tabs do.
@@ -26,6 +32,58 @@ function setupTabs(root) {
     });
   }
   select(tabs.find((tab) => tab.getAttribute("aria-selected") === "true") ?? tabs[0]);
+}
+
+// Tabs with data-autoplay="<ms>" move on by themselves: a bar under the row fills up, and when
+// it's full the next tab opens. A click still opens any tab at once and starts the bar again.
+// The bar waits while the tabs are off screen, the page is hidden or the mouse is over them, and
+// there is none at all for a visitor who asked for less motion. Returns "start the bar again".
+function setupAutoplay(root, next) {
+  const ms = Number(root.dataset.autoplay);
+  if (!ms || matchMedia("(prefers-reduced-motion: reduce)").matches) return () => {};
+
+  const timer = document.createElement("div");
+  timer.className = "ui-tabs__timer";
+  timer.setAttribute("aria-hidden", "true");
+  const bar = document.createElement("i");
+  timer.append(bar);
+  root.querySelector('[role="tablist"]').after(timer);
+
+  // The clock: how long the open tab has been showing, counted only while nothing holds it.
+  const TICK_MS = 100;
+  let shown = 0;
+  let seen = false;
+  let hovered = false;
+  const held = () => !seen || hovered || document.hidden;
+  setInterval(() => {
+    if (held()) return;
+    shown += TICK_MS;
+    bar.style.transform = `scaleX(${Math.min(shown / ms, 1)})`;
+    if (shown >= ms) next();
+  }, TICK_MS);
+
+  new IntersectionObserver(
+    ([entry]) => {
+      seen = entry.isIntersecting;
+    },
+    { threshold: 0.3 },
+  ).observe(root);
+  // Mouse only: a finger never "leaves", and would stop the bar for good.
+  root.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "mouse") hovered = true;
+  });
+  root.addEventListener("pointerleave", () => {
+    hovered = false;
+  });
+
+  return () => {
+    shown = 0;
+    // Back to empty at once, not sliding back.
+    bar.style.transition = "none";
+    bar.style.transform = "scaleX(0)";
+    void bar.offsetWidth;
+    bar.style.transition = "";
+  };
 }
 
 /* ---------- The products menu ---------- */
