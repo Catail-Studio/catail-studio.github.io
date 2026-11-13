@@ -27,7 +27,6 @@
           <a href="{{to:index.html}}">Catail Studio</a>
           <span aria-current="page">Catail</span>
         </nav>
-        <span class="ui-eyebrow">Windows için · ücretsiz · açık kaynak</span>
         <h1 class="ui-title ui-title--hero">Ekran görüntülerini sıraya diz, tek Ctrl+V ile yapıştır.</h1>
         <p class="ui-lead">ChatGPT'ye, WhatsApp'a ya da bir belgeye on görsel mi atacaksın? Pencereler arasında gidip gelme. Catail aldığın görüntüleri, kopyaladığın metinleri ve dosyaları sırayla tutar, sonra hepsini aynı sırayla bırakır.</p>
         <div class="ui-actions ui-actions--center">
@@ -35,15 +34,13 @@
             <!-- include windows-icon -->
             <span class="ui-button__text"><span>Windows için indir</span><small data-download-meta>En son sürüm</small></span>
           </a>
-          <a class="ui-button ui-button--secondary" href="#nasil">Nasıl çalışır?</a>
+          <a class="ui-button ui-button--secondary" href="#ozellikler">Özelliklere bak</a>
         </div>
-        <ul class="ui-actions ui-actions--center catail-badges">
-          <li class="ui-badge ui-badge--trust">Windows 10 ve 11</li>
-          <li class="ui-badge ui-badge--trust">Yönetici izni istemez</li>
-          <li class="ui-badge ui-badge--trust">Telemetri yok</li>
-          <li class="ui-badge ui-badge--trust">MIT lisanslı</li>
-        </ul>
-        <p class="hero__note"><a href="#smartscreen">Windows uyarısı çıkarsa ne yapmalı?</a></p>
+        <ol class="catail-steps" id="nasil" aria-label="Nasıl çalışır">
+          <li><span class="catail-steps__n">1</span><strong>Topla</strong><span><kbd>PrtSc</kbd> ile alanı seç</span></li>
+          <li><span class="catail-steps__n">2</span><strong>Düzenle</strong><span>Rozetten sırala, sil</span></li>
+          <li><span class="catail-steps__n">3</span><strong>Bırak</strong><span><kbd>Ctrl+V</kbd> hepsini yapıştırır</span></li>
+        </ol>
         <p class="mobile-note" data-mobile-note hidden> Catail bir Windows uygulaması. Kurmak için bu sayfayı bilgisayarından aç. </p>
         <div class="ui-stage catail-hero__stage">
           <button class="cat cat--hero catail-hero__cat" type="button" data-hop aria-label="Kediye dokun, zıplasın">
@@ -86,49 +83,6 @@
                         </div>
                       </div>
                     </figure>
-        </div>
-      </section>
-
-      <!-- ===== Why: four short promises ===== -->
-      <section class="ui-section ui-container">
-        <div class="ui-heading">
-          <span class="ui-eyebrow">Neden Catail</span>
-          <h2 class="ui-title">Küçük ama işi bilen bir kedi.</h2>
-          <p class="ui-lead">Arka planda sessizce durur, ihtiyacın olduğunda bir kısayol uzağındadır.</p>
-        </div>
-        <div class="ui-pillars">
-          <div class="ui-pillar"><span class="ui-pillar__big">1 tuş</span><strong>Hızlı</strong><span>Topla, düzenle, tek Ctrl+V ile bırak.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">%100</span><strong>Yerel</strong><span>Kuyruk bilgisayarında kalır, hesap yok.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">~6 MB</span><strong>Hafif</strong><span>Rust ve Tauri ile yazıldı, sistemi yormaz.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">0 ₺</span><strong>Ücretsiz</strong><span>Açık kaynak, reklamsız, MIT lisanslı.</span></div>
-        </div>
-        <!-- include stats -->
-      </section>
-
-      <!-- ===== How it works ===== -->
-      <section class="ui-section ui-section--tint" id="nasil">
-        <div class="ui-container">
-          <div class="ui-heading ui-heading--center">
-            <span class="ui-eyebrow">Nasıl çalışır</span>
-            <h2 class="ui-title">Üç adımda bitiyor.</h2>
-          </div>
-          <ol class="ui-grid ui-grid--3 catail-steps">
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">1</span>
-            <h3>Topla</h3>
-            <p><kbd>PrtSc</kbd> ile alanı seç, kuyruğa ekle. Metin modundaysan her <kbd>Ctrl+C</kbd> de sıraya girer.</p>
-          </li>
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">2</span>
-            <h3>Düzenle</h3>
-            <p>Rozete tıkla, kuyruk açılsın. Kartları sürükleyerek yerini değiştir, istemediğini sil.</p>
-          </li>
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">3</span>
-            <h3>Bırak</h3>
-            <p>Kuyruk doluyken <kbd>Ctrl+V</kbd> hepsini aldığın sırayla yapıştırır. Panonda ne varsa sonra yerine döner.</p>
-          </li>
-          </ol>
         </div>
       </section>
 

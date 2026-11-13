@@ -27,7 +27,6 @@
           <a href="{{to:en/index.html}}">Catail Studio</a>
           <span aria-current="page">Catail</span>
         </nav>
-        <span class="ui-eyebrow">For Windows · free · open source</span>
         <h1 class="ui-title ui-title--hero">Queue up your screenshots, paste them with one Ctrl+V.</h1>
         <p class="ui-lead">Sending ten images to ChatGPT, WhatsApp or a document? Stop flipping between windows. Catail keeps your screenshots, copied text and files in a queue, then drops them all in the same order.</p>
         <div class="ui-actions ui-actions--center">
@@ -35,15 +34,13 @@
             <!-- include windows-icon -->
             <span class="ui-button__text"><span>Download for Windows</span><small data-download-meta>Latest version</small></span>
           </a>
-          <a class="ui-button ui-button--secondary" href="#how">How it works</a>
+          <a class="ui-button ui-button--secondary" href="#features">See the features</a>
         </div>
-        <ul class="ui-actions ui-actions--center catail-badges">
-          <li class="ui-badge ui-badge--trust">Windows 10 and 11</li>
-          <li class="ui-badge ui-badge--trust">No admin rights needed</li>
-          <li class="ui-badge ui-badge--trust">No telemetry</li>
-          <li class="ui-badge ui-badge--trust">MIT licensed</li>
-        </ul>
-        <p class="hero__note"><a href="#smartscreen">What if Windows shows a warning?</a></p>
+        <ol class="catail-steps" id="how" aria-label="How it works">
+          <li><span class="catail-steps__n">1</span><strong>Collect</strong><span><kbd>PrtSc</kbd>, pick an area</span></li>
+          <li><span class="catail-steps__n">2</span><strong>Arrange</strong><span>Reorder it from the badge</span></li>
+          <li><span class="catail-steps__n">3</span><strong>Drop</strong><span><kbd>Ctrl+V</kbd> pastes them all</span></li>
+        </ol>
         <p class="mobile-note" data-mobile-note hidden> Catail is a Windows app. Open this page on your computer to install it. </p>
         <div class="ui-stage catail-hero__stage">
           <button class="cat cat--hero catail-hero__cat" type="button" data-hop aria-label="Poke the cat to make it jump">
@@ -86,49 +83,6 @@
                         </div>
                       </div>
                     </figure>
-        </div>
-      </section>
-
-      <!-- ===== Why: four short promises ===== -->
-      <section class="ui-section ui-container">
-        <div class="ui-heading">
-          <span class="ui-eyebrow">Why Catail</span>
-          <h2 class="ui-title">A small cat that knows its job.</h2>
-          <p class="ui-lead">It sits quietly in the background, one shortcut away when you need it.</p>
-        </div>
-        <div class="ui-pillars">
-          <div class="ui-pillar"><span class="ui-pillar__big">1 key</span><strong>Fast</strong><span>Collect, tidy up, drop it all with one Ctrl+V.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">100%</span><strong>Local</strong><span>The queue stays on your computer. No account.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">~6 MB</span><strong>Light</strong><span>Built with Rust and Tauri, easy on your PC.</span></div>
-          <div class="ui-pillar"><span class="ui-pillar__big">$0</span><strong>Free</strong><span>Open source, no ads, MIT licensed.</span></div>
-        </div>
-        <!-- include stats -->
-      </section>
-
-      <!-- ===== How it works ===== -->
-      <section class="ui-section ui-section--tint" id="how">
-        <div class="ui-container">
-          <div class="ui-heading ui-heading--center">
-            <span class="ui-eyebrow">How it works</span>
-            <h2 class="ui-title">Done in three steps.</h2>
-          </div>
-          <ol class="ui-grid ui-grid--3 catail-steps">
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">1</span>
-            <h3>Collect</h3>
-            <p>Press <kbd>PrtSc</kbd>, pick an area, add it to the queue. In text mode every <kbd>Ctrl+C</kbd> joins the queue too.</p>
-          </li>
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">2</span>
-            <h3>Arrange</h3>
-            <p>Click the badge to open the queue. Drag the cards to reorder them, delete the ones you don't want.</p>
-          </li>
-          <li class="ui-card catail-step">
-            <span class="catail-step__n">3</span>
-            <h3>Drop</h3>
-            <p>While the queue has items, <kbd>Ctrl+V</kbd> pastes them all in the order you took them. Whatever was on your clipboard comes back afterwards.</p>
-          </li>
-          </ol>
         </div>
       </section>
 
