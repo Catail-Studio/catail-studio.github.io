@@ -1454,7 +1454,7 @@ body.ui-page {
   mask-composite: intersect;
 }
 
-/* ---------- The showcase: a framed top with two cat ears ---------- */
+/* ---------- The showcase: a framed, layered top ---------- */
 
 .ui-showcase {
   position: relative;
@@ -1493,56 +1493,7 @@ body.ui-page {
   mask-composite: intersect;
 }
 
-/* The ears: rounded points standing on the frame's top edge, pink inside. They are cut off
-   at the edge itself, and painted one pixel past it so the frame's line doesn't cross them. */
-.ui-showcase__ear {
-  position: absolute;
-  bottom: calc(100% - 1px);
-  width: 120px;
-  height: 74px;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.ui-showcase__ear--left {
-  left: 13%;
-  transform: rotate(-8deg);
-  transform-origin: 50% 100%;
-}
-
-.ui-showcase__ear--right {
-  right: 13%;
-  transform: rotate(8deg);
-  transform-origin: 50% 100%;
-}
-
-.ui-showcase__ear::before,
-.ui-showcase__ear::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  border-radius: 18px 4px 4px 4px;
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.ui-showcase__ear::before {
-  top: 18px;
-  width: 84px;
-  height: 84px;
-  border: 1px solid var(--ui-hair);
-  background: var(--bg-2);
-  box-shadow: inset 1px 1px 0 var(--ui-edge);
-}
-
-.ui-showcase__ear::after {
-  top: 36px;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px 3px 3px 3px;
-  background: color-mix(in srgb, var(--accent) 80%, var(--bg-2));
-}
-
-/* ---------- The big title, with whiskers beside its second line ---------- */
+/* ---------- The big title; and whiskers, either side of whatever they're put round ---------- */
 
 .ui-title--display {
   font-size: clamp(44px, 7.2vw, 100px);
@@ -1552,7 +1503,7 @@ body.ui-page {
   text-wrap: wrap;
 }
 
-/* The second line of the title, like a cat's cheeks: a whisker on either side. */
+/* Like a cat's cheeks: a whisker on either side of what's inside. */
 .ui-cheeks {
   position: relative;
   white-space: nowrap;
@@ -1623,22 +1574,5 @@ body.ui-page {
 @media (max-width: 720px) {
   .ui-showcase {
     border-radius: 30px;
-  }
-
-  .ui-showcase__ear {
-    width: 64px;
-    height: 38px;
-  }
-
-  .ui-showcase__ear::before {
-    top: 10px;
-    width: 46px;
-    height: 46px;
-  }
-
-  .ui-showcase__ear::after {
-    top: 22px;
-    width: 20px;
-    height: 20px;
   }
 }

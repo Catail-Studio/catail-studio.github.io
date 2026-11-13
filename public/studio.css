@@ -34,10 +34,31 @@
   transform: translateY(-4px) rotate(-3deg);
 }
 
-/* The cat that's on: a soft card behind it, in its own colors. */
+/* The cat that's on: a soft card behind it, and a bar underneath in the page's color. */
+.studio-parade__cat {
+  position: relative;
+}
+
+.studio-parade__cat::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--brand);
+  translate: -50% 0;
+  transition: width var(--ui-slow) var(--ui-ease);
+}
+
 .studio-parade__cat[aria-pressed="true"] {
   border-color: var(--ui-hair);
   background: var(--bg-2);
+}
+
+.studio-parade__cat[aria-pressed="true"]::after {
+  width: 56%;
 }
 
 .studio-parade__hint {
@@ -48,6 +69,12 @@
 
 .studio-hero .ui-hero {
   gap: 26px;
+}
+
+/* Whiskers either side of the button. */
+.studio-hero__cheeks {
+  display: inline-flex;
+  font-size: 76px;
 }
 
 /* The one way on from the top: down to the products. */
@@ -149,5 +176,20 @@
 @media (max-width: 720px) {
   .studio-feature {
     padding: var(--ui-5);
+  }
+}
+
+@media (max-width: 560px) {
+  /* Narrower: shorter whiskers and a narrower button, so all three still fit. */
+  .studio-hero__cheeks {
+    font-size: 48px;
+  }
+
+  .studio-hero__cheeks .ui-whiskers {
+    display: block;
+  }
+
+  .studio-hero__go {
+    min-width: 0;
   }
 }
