@@ -73,7 +73,6 @@
 
 /* The studio's own logo above the title. */
 .studio-hero__logo .logo {
-  width: auto;
   height: clamp(32px, 3.4vw, 44px);
 }
 

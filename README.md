@@ -53,6 +53,14 @@ npm run serve   # http://localhost:5180 adresinde açar
 - **404 sayfası:** `404.html`, `site/pages/404.html` kaynağından üretilir. Her adreste açılabileceği için bağlantıları sitenin kökünden başlar (`<base>`).
 - **Üst bardaki İndir düğmesi:** Yalnızca bir ürünün kendi sayfalarında görünür (`site.json` içinde `"product"`). Stüdyo sayfaları birden çok ürünü kapsadığı için orada yoktur.
 
+## Logo
+
+Sitedeki her Catail Studio logosu tek bir `<span class="logo">` ve seçili kedinin renklerine göre değişir. Logonun beş renkli hali `public/assets/logo/catail-studio-<kedi>.png` dosyalarındadır; hangi temada hangisinin görüneceği `style.css` içinde `--logo` ile belirlenir. Logolar özgün `public/assets/catail-studio.png` dosyasından boyanır. Logo ya da tema renkleri değişirse yeniden boya (Pillow ve NumPy gerekir):
+
+```powershell
+python site/tools/recolor_logo.py
+```
+
 ## Paylaşım görselleri
 
 Bir bağlantı paylaşıldığında görünen 1200×630 görseller `public/assets/share/` altında durur (`studio-tr.png`, `catail-en.png` gibi). Bunlar `site/share/card.html` şablonundan çizilir; yazı ya da görünüş değişirse yeniden çiz:

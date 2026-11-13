@@ -843,8 +843,7 @@ a.ui-card:hover {
   font-size: 15px;
 }
 
-.ui-footer__brand img {
-  width: auto;
+.ui-footer__brand .logo {
   height: 28px;
 }
 

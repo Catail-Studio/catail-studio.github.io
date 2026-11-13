@@ -357,20 +357,36 @@ kbd {
   text-decoration: none;
 }
 
-/* The Catail Studio wordmark: dark ink, or light ink on the black cat's dark theme. */
+/* The Catail Studio wordmark, painted in each cat's colors (site/tools/recolor_logo.py). Its
+   box takes the picture's shape; give it a height and the width follows. */
 .logo {
   display: block;
   width: auto;
   height: 30px;
+  aspect-ratio: 651 / 96;
+  justify-self: start;
+  background: var(--logo) center / contain no-repeat;
+  transition: background-image 240ms var(--out);
 }
 
-.logo--light-ink,
-[data-cat="black"] .logo--dark-ink {
-  display: none;
+[data-cat="orange"] {
+  --logo: url("assets/logo/catail-studio-orange.png");
 }
 
-[data-cat="black"] .logo--light-ink {
-  display: block;
+[data-cat="gray"] {
+  --logo: url("assets/logo/catail-studio-gray.png");
+}
+
+[data-cat="white"] {
+  --logo: url("assets/logo/catail-studio-white.png");
+}
+
+[data-cat="calico"] {
+  --logo: url("assets/logo/catail-studio-calico.png");
+}
+
+[data-cat="black"] {
+  --logo: url("assets/logo/catail-studio-black.png");
 }
 
 .foot__brand {
