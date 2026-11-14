@@ -23,6 +23,11 @@
       "tr": "convert/index.html",
       "en": "en/convert/index.html",
       "product": "convert"
+    },
+    {
+      "tr": "convert/surumler.html",
+      "en": "en/convert/releases.html",
+      "product": "convert"
     }
   ],
   "redirects": {

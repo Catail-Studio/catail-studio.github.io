@@ -1,6 +1,6 @@
 // The releases page: every published installer, newest first, with a direct download link.
 import { lang, locale, t } from "./i18n.js";
-import { loadReleases } from "./release.js";
+import { loadReleases, releasesPage } from "./release.js";
 
 // What changed, in a few words, in each language. A release not listed here shows its notes
 // from GitHub.
@@ -101,7 +101,37 @@ const NOTES_EN = {
   "0.7.1": ["16 languages.", "Pick the target language for translation.", "Pick where the queue badge sits.", "QR reading fixes."],
   "0.6.0": ["QR codes on screen are read, with the domain shown in bold."],
 };
-const NOTES = lang === "en" ? NOTES_EN : NOTES_TR;
+// Catail Convert's notes, in the same way.
+const CONVERT_NOTES_TR = {
+  "0.1.0": [
+    "İlk sürüm (demo). Görsel, belge, veri ve arşiv dosyalarını buluta yüklemeden, bilgisayarında dönüştürür.",
+    "PNG, JPG, WEBP, AVIF, ICO, SVG, BMP, TIFF; görselleri tek PDF'te birleştirme, PDF birleştirme ve bölme.",
+    "JSON, CSV, YAML, TOML ve XML birbirine; Markdown'dan HTML ve PDF; ZIP ve TAR.GZ.",
+    "Kedi kutusu (Alt+C), stüdyo penceresi ve panodan Ctrl+V. Ses ve video için FFmpeg yalnızca onaylarsan iner.",
+    "Catail ile birlikte: ekran görüntüsünü tek tıkla dönüştür, sonuçları kuyruğa ekle, kuyruğu buraya al.",
+  ],
+};
+const CONVERT_NOTES_EN = {
+  "0.1.0": [
+    "First release (demo). Converts images, documents, data and archives on your computer, without uploading them.",
+    "PNG, JPG, WEBP, AVIF, ICO, SVG, BMP, TIFF; images into one PDF, merging and splitting PDFs.",
+    "JSON, CSV, YAML, TOML and XML into each other; Markdown to HTML and PDF; ZIP and TAR.GZ.",
+    "The cat box (Alt+C), the studio window and Ctrl+V from the clipboard. FFmpeg for audio and video downloads only if you agree.",
+    "Together with Catail: convert a screenshot in one click, add results to the queue, bring the queue in.",
+  ],
+};
+
+/** Which product this page lists: <ol data-list data-product="convert">, Catail otherwise. */
+const PRODUCT = document.querySelector("[data-list]")?.dataset.product === "convert" ? "convert" : "catail";
+const PRODUCT_NAME = PRODUCT === "convert" ? "Catail Convert" : "Catail";
+const NOTES =
+  PRODUCT === "convert"
+    ? lang === "en"
+      ? CONVERT_NOTES_EN
+      : CONVERT_NOTES_TR
+    : lang === "en"
+      ? NOTES_EN
+      : NOTES_TR;
 
 const numberFormat = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
 const dateFormat = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
@@ -128,7 +158,7 @@ function card(release, newest) {
   const item = element("li", `relcard${newest ? " relcard--new" : ""}`);
 
   const head = element("div", "relcard__head");
-  const title = element("h2", "relcard__title", `Catail ${release.version}`);
+  const title = element("h2", "relcard__title", `${PRODUCT_NAME} ${release.version}`);
   head.append(title);
   if (newest) head.append(element("span", "relcard__tag", t.newest));
   item.append(head);
@@ -156,12 +186,12 @@ function card(release, newest) {
 async function main() {
   const status = document.querySelector("[data-status]");
   const list = document.querySelector("[data-list]");
-  const { releases } = await loadReleases();
+  const { releases } = await loadReleases({ product: PRODUCT });
   if (releases.length === 0) {
     const [before, linkText, after] = t.releasesFailed;
     status.replaceChildren(
       before,
-      Object.assign(element("a", "", linkText), { href: "https://github.com/Catail-Studio/catail-ss/releases" }),
+      Object.assign(element("a", "", linkText), { href: releasesPage(PRODUCT) }),
       after,
     );
     return;

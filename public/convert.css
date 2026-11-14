@@ -607,6 +607,22 @@
   font: 800 13px/1.4 var(--ui-text);
 }
 
+/* ---------- Together with Catail ---------- */
+
+.convert-together-note {
+  max-width: 46rem;
+  margin: var(--ui-5) auto 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* On Catail's page, the scene sits beside the words. */
+.convert-catail-scene {
+  grid-column: auto;
+  margin: 0;
+}
+
 /* ---------- Honest limits ---------- */
 
 .convert-limits {

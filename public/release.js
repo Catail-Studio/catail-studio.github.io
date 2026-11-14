@@ -1,13 +1,29 @@
-// Reads Catail's releases. latest.json can't be read from a browser (GitHub sends no CORS
-// header for release files) and the file name carries the version, so this asks the GitHub API.
-// Whatever goes wrong, download links keep RELEASES_PAGE, which always shows the latest release.
+// Reads the studio's releases (Catail, Catail Convert). latest.json can't be read from a browser
+// (GitHub sends no CORS header for release files) and the file name carries the version, so this
+// asks the GitHub API. Whatever goes wrong, download links keep the product's releases page,
+// which always shows the latest release.
 
-const REPO = "Catail-Studio/catail-ss";
-const API_URL = `https://api.github.com/repos/${REPO}/releases?per_page=100`;
-const DOWNLOAD_PREFIX = `https://github.com/${REPO}/releases/download/`;
-const INSTALLER = /^catail[_-]v?(\d+\.\d+\.\d+)[_-]x64-setup\.exe$/i;
-// v2: entries carry download counts too.
-const CACHE_KEY = "catail.site.releases.v2";
+/** Each product: its repository, its installer's name, where its list is kept. */
+export const PRODUCTS = {
+  catail: {
+    repo: "Catail-Studio/catail-ss",
+    installer: /^catail[_-]v?(\d+\.\d+\.\d+)[_-]x64-setup\.exe$/i,
+    // v2: entries carry download counts too.
+    cacheKey: "catail.site.releases.v2",
+  },
+  convert: {
+    repo: "Catail-Studio/catail-convert",
+    // GitHub turns the space of "Catail Convert_0.1.0_x64-setup.exe" into a dot.
+    installer: /^catail[ ._-]convert[_-]v?(\d+\.\d+\.\d+)[_-]x64-setup\.exe$/i,
+    cacheKey: "catail.site.convert.releases.v1",
+  },
+};
+
+const productOf = (name) => PRODUCTS[name] ?? PRODUCTS.catail;
+const apiUrl = (p) => `https://api.github.com/repos/${p.repo}/releases?per_page=100`;
+const downloadPrefix = (p) => `https://github.com/${p.repo}/releases/download/`;
+
+const REPO = PRODUCTS.catail.repo;
 const REPO_URL = `https://api.github.com/repos/${REPO}`;
 const REPO_CACHE_KEY = "catail.site.repo";
 const REPO_CACHE_TTL_MS = 30 * 60 * 1000;
@@ -15,6 +31,8 @@ const REPO_CACHE_TTL_MS = 30 * 60 * 1000;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
 export const RELEASES_PAGE = `https://github.com/${REPO}/releases/latest`;
+/** A product's own releases page on GitHub. */
+export const releasesPage = (name = "catail") => `https://github.com/${productOf(name).repo}/releases`;
 
 export function compareVersions(a, b) {
   const left = a.split(".").map(Number);
@@ -27,15 +45,17 @@ export function compareVersions(a, b) {
 
 // Every published release that has an installer, newest first. A release still waiting for its
 // upload, a draft or a pre-release is left out, so no link ever points at nothing.
-export function listReleases(releases) {
+export function listReleases(releases, name = "catail") {
   if (!Array.isArray(releases)) return [];
+  const product = productOf(name);
+  const prefix = downloadPrefix(product);
   const byVersion = new Map();
   for (const release of releases) {
     if (!release || release.draft || release.prerelease) continue;
     for (const asset of release.assets ?? []) {
-      const match = INSTALLER.exec(asset?.name ?? "");
+      const match = product.installer.exec(asset?.name ?? "");
       const url = asset?.browser_download_url;
-      if (!match || typeof url !== "string" || !url.startsWith(DOWNLOAD_PREFIX)) continue;
+      if (!match || typeof url !== "string" || !url.startsWith(prefix)) continue;
       if (byVersion.has(match[1])) continue;
       byVersion.set(match[1], {
         version: match[1],
@@ -50,23 +70,27 @@ export function listReleases(releases) {
   return [...byVersion.values()].sort((a, b) => compareVersions(b.version, a.version));
 }
 
-export function pickLatest(releases) {
-  return listReleases(releases)[0] ?? null;
+export function pickLatest(releases, name = "catail") {
+  return listReleases(releases, name)[0] ?? null;
 }
 
-function isRelease(value) {
+function isRelease(value, product) {
   return (
     typeof value?.version === "string" &&
     typeof value.url === "string" &&
-    value.url.startsWith(DOWNLOAD_PREFIX) &&
+    value.url.startsWith(downloadPrefix(product)) &&
     typeof value.downloads === "number"
   );
 }
 
-function readCache(storage) {
+function readCache(storage, product) {
   try {
-    const cached = JSON.parse(storage.getItem(CACHE_KEY));
-    if (Array.isArray(cached?.releases) && cached.releases.length > 0 && cached.releases.every(isRelease)) {
+    const cached = JSON.parse(storage.getItem(product.cacheKey));
+    if (
+      Array.isArray(cached?.releases) &&
+      cached.releases.length > 0 &&
+      cached.releases.every((release) => isRelease(release, product))
+    ) {
       return cached;
     }
   } catch {
@@ -75,9 +99,9 @@ function readCache(storage) {
   return null;
 }
 
-function writeCache(storage, releases, at) {
+function writeCache(storage, product, releases, at) {
   try {
-    storage.setItem(CACHE_KEY, JSON.stringify({ releases, at }));
+    storage.setItem(product.cacheKey, JSON.stringify({ releases, at }));
   } catch {
     // Only saves a request next time.
   }
@@ -85,23 +109,25 @@ function writeCache(storage, releases, at) {
 
 // Resolves to { releases, source }, releases being empty when nothing is known. Never rejects.
 export async function loadReleases({
+  product: name = "catail",
   fetchFn = globalThis.fetch.bind(globalThis),
   storage = globalThis.localStorage,
   now = Date.now(),
   timeoutMs = 6000,
 } = {}) {
-  const cached = readCache(storage);
+  const product = productOf(name);
+  const cached = readCache(storage, product);
   if (cached && now - cached.at < CACHE_TTL_MS) return { releases: cached.releases, source: "cache" };
 
   try {
-    const response = await fetchFn(API_URL, {
+    const response = await fetchFn(apiUrl(product), {
       headers: { Accept: "application/vnd.github+json" },
       signal: AbortSignal.timeout(timeoutMs),
     });
     if (!response.ok) throw new Error(`GitHub answered ${response.status}`);
-    const releases = listReleases(await response.json());
+    const releases = listReleases(await response.json(), name);
     if (releases.length > 0) {
-      writeCache(storage, releases, now);
+      writeCache(storage, product, releases, now);
       return { releases, source: "api" };
     }
   } catch {

@@ -100,20 +100,44 @@ async function setupDownload() {
     for (const note of document.querySelectorAll("[data-mobile-note]")) note.hidden = false;
   }
 
+  // Buttons without a value are Catail's; data-download="convert" ones are Catail Convert's.
+  const has = (product) =>
+    product === "catail"
+      ? document.querySelector('[data-download]:not([data-download="convert"])')
+      : document.querySelector(`[data-download="${product}"]`);
+  const links = (product) =>
+    product === "catail"
+      ? document.querySelectorAll('[data-download]:not([data-download="convert"])')
+      : document.querySelectorAll(`[data-download="${product}"]`);
+  const metas = (product) =>
+    product === "catail"
+      ? document.querySelectorAll('[data-download-meta]:not([data-download-meta="convert"])')
+      : document.querySelectorAll(`[data-download-meta="${product}"]`);
+
+  if (has("convert")) void fillDownloads("convert", links, metas);
+  if (!has("catail") && !document.querySelector("[data-count-of]")) return;
+
   const { releases } = await loadReleases();
   const release = releases[0] ?? null;
   showCount("downloads", releases.length ? totalDownloads(releases) : null);
-  const metas = document.querySelectorAll("[data-download-meta]");
   if (!release) {
     // The links already lead to the Releases page; the text just has to admit it.
-    for (const meta of metas) meta.textContent = t.fromReleases;
+    for (const meta of metas("catail")) meta.textContent = t.fromReleases;
     return;
   }
-  for (const link of document.querySelectorAll("[data-download]")) link.href = release.url;
-  for (const meta of metas) meta.textContent = describe(release);
+  for (const link of links("catail")) link.href = release.url;
+  for (const meta of metas("catail")) meta.textContent = describe(release);
 
   const soon = document.querySelector("[data-themes-soon]");
   if (soon) soon.hidden = compareVersions(release.version, LAST_VERSION_WITHOUT_PICKER) > 0;
+}
+
+/** A product's download buttons: straight to its newest installer once there is one. */
+async function fillDownloads(product, links, metas) {
+  const { releases } = await loadReleases({ product });
+  const release = releases[0] ?? null;
+  for (const meta of metas(product)) meta.textContent = release ? describe(release) : t.fromReleases;
+  if (release) for (const link of links(product)) link.href = release.url;
 }
 
 /* ---------- Live numbers from GitHub ---------- */

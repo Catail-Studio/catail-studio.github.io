@@ -36,9 +36,9 @@
           an internet connection.
         </p>
         <div class="ui-actions ui-actions--center">
-          <a class="ui-button ui-button--primary ui-button--large" href="https://github.com/Catail-Studio/catail-convert">
-            <!-- include github-icon -->
-            <span class="ui-button__text"><span>Watch on GitHub</span><small>First release coming soon</small></span>
+          <a class="ui-button ui-button--primary ui-button--large" data-download="convert" href="https://github.com/Catail-Studio/catail-convert/releases/latest">
+            <!-- include windows-icon -->
+            <span class="ui-button__text"><span>Download for Windows</span><small data-download-meta="convert">Latest release</small></span>
           </a>
           <a class="ui-button ui-button--secondary" href="#formats">What does it convert?</a>
         </div>
@@ -123,6 +123,33 @@
         </div>
       </section>
 
+      <!-- ===== Together with Catail ===== -->
+      <section class="ui-section ui-container" id="together">
+        <div class="ui-heading ui-heading--center">
+          <span class="ui-eyebrow">Together with Catail</span>
+          <h2 class="ui-title">Two cats, one team.</h2>
+          <p class="ui-lead">With Catail installed too, the two find each other and offer extra options. Either one still works on its own.</p>
+        </div>
+        <div class="ui-grid ui-grid--3 convert-modes">
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M4 8a8 8 0 0 1 14-3l2 2M20 3v4h-4M20 16a8 8 0 0 1-14 3l-2-2M4 21v-4h4M10 9h4v6h-4z" /></svg></span>
+            <h3>Convert a screenshot</h3>
+            <p>Select an area in Catail and its toolbar shows <strong>Convert</strong>: the picture drops straight into the cat box; pick a format, done.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M4 6h10M4 12h10M4 18h7M18 15v6M15 18h6" /></svg></span>
+            <h3>Add results to the queue</h3>
+            <p>Converted files join Catail's queue with one click; <kbd>Ctrl</kbd>+<kbd>V</kbd> in the target app pastes them all in order. Or let it happen on its own.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9zM8 5H6v16h12V5h-2M9 13l3 3 3-3M12 9v7" /></svg></span>
+            <h3>Convert the queue</h3>
+            <p>When Catail's queue holds something, Convert tells you and takes it all in with one click. Catail's queue panel can send it over too.</p>
+          </div>
+        </div>
+        <p class="convert-together-note">They wear the same cat and speak the same language: change the cat in Catail and Convert follows. All on your computer; nothing between them goes online. The Convert buttons on Catail's side come with Catail 0.9.8; adding to the queue already works with today's Catail.</p>
+      </section>
+
       <!-- ===== Privacy ===== -->
       <section class="ui-section ui-container" id="privacy">
         <div class="ui-split">
@@ -184,13 +211,18 @@ npm run tauri dev</code></pre>
       <!-- ===== Last call ===== -->
       <section class="ui-section ui-container" id="download">
         <div class="ui-cta">
-          <h2 class="ui-title">The first release is on its way.</h2>
-          <p class="ui-lead">The installer will be here once it's published. Until then, watch it on GitHub or build it yourself.</p>
-          <a class="ui-button ui-button--primary ui-button--large" href="https://github.com/Catail-Studio/catail-convert">
-            <!-- include github-icon -->
-            <span>Watch on GitHub</span>
+          <h2 class="ui-title">Take the box home.</h2>
+          <p class="ui-lead">Download it for free and use it. No account, no ads, no internet needed.</p>
+          <a class="ui-button ui-button--primary ui-button--large" data-download="convert" href="https://github.com/Catail-Studio/catail-convert/releases/latest">
+            <!-- include windows-icon -->
+            <span class="ui-button__text"><span>Download for Windows</span><small data-download-meta="convert">Latest release</small></span>
           </a>
-          <p class="convert-soon">Windows 10 and 11 · free · MIT</p>
+          <ul class="ui-checks ui-checks--row">
+            <li>Windows 10 and 11, 64-bit</li>
+            <li>Installs in your user folder, no admin rights</li>
+            <li>Sits in the system tray; Alt+C opens the cat box</li>
+          </ul>
+          <a class="ui-button ui-button--quiet" href="{{to:en/convert/releases.html}}">Every release and its notes</a>
         </div>
       </section>
     </main>

@@ -60,4 +60,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://catail-studio.github.io/en/convert/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catail-studio.github.io/en/convert/" />
   </url>
+  <url>
+    <loc>https://catail-studio.github.io/convert/surumler.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://catail-studio.github.io/convert/surumler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://catail-studio.github.io/en/convert/releases.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://catail-studio.github.io/en/convert/releases.html" />
+  </url>
+  <url>
+    <loc>https://catail-studio.github.io/en/convert/releases.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://catail-studio.github.io/convert/surumler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://catail-studio.github.io/en/convert/releases.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://catail-studio.github.io/en/convert/releases.html" />
+  </url>
 </urlset>

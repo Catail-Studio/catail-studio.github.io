@@ -62,6 +62,7 @@
     <link rel="stylesheet" href="../../scenes.css" />
     <link rel="stylesheet" href="../../design.css" />
     <link rel="stylesheet" href="../../catail.css" />
+    <link rel="stylesheet" href="../../convert.css" />
     <script type="module" src="../../app.js"></script>
     <script type="module" src="../../scenes.js"></script>
     <script type="module" src="../../ui.js"></script>
@@ -84,7 +85,7 @@
               </a>
               <a class="ui-nav__item" href="../convert/">
                 <img src="../../assets/convert/icon-128.png" alt="" width="40" height="40" />
-                <span><strong>Catail Convert <span class="ui-badge ui-badge--soon">Soon</span></strong><span>Converts files without uploading them</span></span>
+                <span><strong>Catail Convert <span class="ui-badge ui-badge--soon">New</span></strong><span>Converts files without uploading them</span></span>
               </a>
             </div>
           </details>
@@ -544,6 +545,55 @@
         </div>
       </section>
 
+      <!-- ===== Together with Catail Convert ===== -->
+      <section class="ui-section ui-container" id="convert">
+        <div class="ui-split">
+          <div class="ui-split__text">
+            <span class="ui-eyebrow">Together with Catail Convert</span>
+            <h2 class="ui-title">Capture, convert, paste.</h2>
+            <p class="ui-lead">With its sister Catail Convert installed too, Catail recognizes it and offers new options:</p>
+            <ul class="ui-checks">
+              <li><strong>Convert</strong> on the toolbar after you select an area: the picture drops into Convert's cat box</li>
+              <li><strong>Convert</strong> in the queue panel: everything in the queue, or what you picked, opens in Convert</li>
+              <li>Files converted in Convert join Catail's queue with one click, ready for <kbd>Ctrl</kbd>+<kbd>V</kbd></li>
+              <li>Both apps wear the same cat and speak the same language</li>
+            </ul>
+            <p class="convert-soon">The Convert buttons on Catail's side come with the next release (0.9.8).</p>
+            <a class="ui-button ui-button--secondary" href="../convert/">See Catail Convert</a>
+          </div>
+          <figure class="scene convert-catail-scene" style="--loop: 10s; --freeze: -6.8s">
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><span>Catail Convert</span><span class="win__dots"><i></i><i></i><i></i></span></div>
+              <div class="win__body cv">
+                <div class="cv__files">
+                  <span class="cv-file cv-file--1"><b>PNG</b><span>holiday.png</span><small>4.2 MB</small></span>
+                  <span class="cv-file cv-file--2"><b>JSON</b><span>data.json</span><small>18 KB</small></span>
+                  <span class="cv-file cv-file--3"><b>MD</b><span>notes.md</span><small>6 KB</small></span>
+                </div>
+                <div class="cv__box">
+                  <span class="cv__bubbles"><i>JPG</i><i class="is-pick">WEBP</i><i>PDF</i></span>
+                  <span class="cv__cat">
+                    <span class="cv__glow"></span>
+                    <span class="cv__head"></span>
+                    <span class="cv__paw cv__paw--l"></span>
+                    <span class="cv__paw cv__paw--r"></span>
+                    <span class="cv__front"></span>
+                    <span class="cv__dust"><i></i><i></i><i></i><i></i></span>
+                  </span>
+                  <span class="cv__bar"><i></i></span>
+                  <span class="cv__note">Nothing goes to a server</span>
+                </div>
+                <div class="cv__out">
+                  <span class="cv-out cv-out--1"><b>WEBP</b><span>holiday.webp</span><small>4.2 MB → 680 KB <em>−84%</em></small></span>
+                  <span class="cv-out cv-out--2"><b>YAML</b><span>data.yaml</span><small>15 KB</small></span>
+                  <span class="cv-out cv-out--3"><b>PDF</b><span>notes.pdf</span><small>48 KB</small></span>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
       <!-- ===== Screenshots ===== -->
       <section class="ui-section ui-container" id="screens">
         <div class="ui-heading">
@@ -697,6 +747,7 @@ npm run tauri dev</code></pre>
             <ul>
               <li><a href="./">Catail</a></li>
               <li><a href="../convert/">Catail Convert</a></li>
+              <li><a href="../convert/releases.html">Catail Convert releases</a></li>
             </ul>
           </div>
           <div>
