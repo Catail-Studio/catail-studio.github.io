@@ -5,7 +5,8 @@ import { loadReleases, releasesPage } from "./release.js";
 // What changed, in a few words, in each language. A release not listed here shows its notes
 // from GitHub.
 const NOTES_TR = {
-  "0.9.8": [
+  "0.9.9": [
+    "Hayvanlar çok daha uzun süre uyanık: muz yiyor, kavga ediyor, ağaçta sallanıyor; uykuları kısa.",
     "Catail Convert ile birlikte: alan seçince araç çubuğunda Dönüştür, kuyruk panelinin en üstünde Dönüştür.",
     "Catail Convert'te dönüştürülenler tek tıkla kuyruğa girer; iki uygulama aynı kediyi ve dili kullanır.",
     "Ayarlarda hayvan seçimi artık ızgara: hayvanlar yana kaymadan alt alta diziliyor.",
@@ -60,7 +61,8 @@ const NOTES_TR = {
 };
 
 const NOTES_EN = {
-  "0.9.8": [
+  "0.9.9": [
+    "The animals stay awake much longer, eating bananas, fighting, swinging on the tree; their naps are short.",
     "Together with Catail Convert: Convert on the toolbar after you select an area, and at the top of the queue panel.",
     "Files converted in Catail Convert join the queue in one click; both apps wear the same cat and speak the same language.",
     "The animal picker in Settings is a grid now: animals line up in rows instead of scrolling sideways.",
