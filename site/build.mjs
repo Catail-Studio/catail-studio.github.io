@@ -13,8 +13,6 @@
 //   {{to:catail/index.html}}  a relative link from this page to that one (a page in site.json)
 //   {{url}} {{url.tr}} {{url.en}}   full addresses of this page, and of its two languages
 //   {{lang}}                "tr" or "en"
-//   {{nav.download}}        the top bar's download button, on a product's pages only
-//                           ("product" in site.json)
 //   {{title}} {{description}}  the page's own <title> and meta description (for sharing)
 //   {{share}} {{ld}} {{origin}} {{locale}}  share picture, search data, site address, og locale
 //
@@ -100,9 +98,6 @@ function buildPage(pair, lang) {
     "url.tr": urlOf(pair.tr),
     "url.en": urlOf(pair.en),
     lang,
-    // The top bar's download button is for a product's own pages; the studio's pages have
-    // several products, so a lone "Download" there would leave you guessing which.
-    "nav.download": pair.product ? partial("nav-download", lang) : "",
     origin: config.origin,
     locale: LOCALES[lang],
     "locale.other": LOCALES[OTHER[lang]],

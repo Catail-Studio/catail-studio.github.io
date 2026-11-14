@@ -51,7 +51,7 @@ npm run serve   # http://localhost:5180 adresinde açar
 - **Yapısal veri:** Stüdyo sayfası Google'a kendini `Organization`, Catail sayfaları `SoftwareApplication` olarak tanıtır (`site/partials/ld-*.html`).
 - **Site haritası ve robots:** `sitemap.xml` ile `robots.txt` her derlemede `site.json` içindeki sayfalardan yeniden yazılır.
 - **404 sayfası:** `404.html`, `site/pages/404.html` kaynağından üretilir. Her adreste açılabileceği için bağlantıları sitenin kökünden başlar (`<base>`).
-- **Üst bardaki İndir düğmesi:** Yalnızca bir ürünün kendi sayfalarında görünür (`site.json` içinde `"product"`). Stüdyo sayfaları birden çok ürünü kapsadığı için orada yoktur.
+- **Üst bardaki Tema menüsü:** Her sayfada; kedilerden birini seçince site o kedinin renklerine bürünür (`site/partials/themes-menu.*.html`).
 
 ## Logo
 

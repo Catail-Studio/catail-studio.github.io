@@ -130,7 +130,7 @@ function card(release, newest) {
     item.append(list);
   }
 
-  const link = element("a", `btn ${newest ? "" : "btn--ghost "}relcard__get`);
+  const link = element("a", `ui-button ${newest ? "ui-button--primary" : "ui-button--secondary"} relcard__get`);
   link.href = release.url;
   link.append(element("span", "", newest ? t.download : t.downloadVersion(release.version)));
   item.append(link);

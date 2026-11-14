@@ -1,5 +1,6 @@
 // The design system's few behaviours (design.css): tabs that switch their panels, the menus in
-// the top bar closing when you click elsewhere or press Esc, and the bar marking the page you're on.
+// the top bar closing when you click elsewhere or press Esc, the bar marking the page you're on,
+// and the cat that takes you back to the top.
 
 /* ---------- Tabs ---------- */
 
@@ -117,6 +118,24 @@ function markCurrent() {
   }
 }
 
+/* ---------- Back to the top ---------- */
+
+function setupToTop() {
+  const button = document.querySelector(".ui-to-top");
+  if (!button) return;
+  const show = () => {
+    button.hidden = scrollY < 700;
+  };
+  addEventListener("scroll", show, { passive: true });
+  show();
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+  });
+}
+
 for (const root of document.querySelectorAll(".ui-tabs")) setupTabs(root);
+setupToTop();
 setupMenus();
 markCurrent();
