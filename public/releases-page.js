@@ -5,6 +5,12 @@ import { loadReleases, releasesPage } from "./release.js";
 // What changed, in a few words, in each language. A release not listed here shows its notes
 // from GitHub.
 const NOTES_TR = {
+  "0.9.8": [
+    "Catail Convert ile birlikte: alan seçince araç çubuğunda Dönüştür, kuyruk panelinin en üstünde Dönüştür.",
+    "Catail Convert'te dönüştürülenler tek tıkla kuyruğa girer; iki uygulama aynı kediyi ve dili kullanır.",
+    "Ayarlarda hayvan seçimi artık ızgara: hayvanlar yana kaymadan alt alta diziliyor.",
+    "Maymun ağacında ve ekranın köşesinde elinde fazladan dal olmadan sallanıyor.",
+  ],
   "0.9.7": [
     "Yeni hayvanlar: kurbağa ve kapibara. Her hayvan kendi yerine saklanıyor: kurbağa nilüfer yaprağına, kapibara sıcak küvetine, maymun çalılığa.",
     "Hayvanlar gerçek gibi hareket ediyor: göz kırpıyor, nefes alıyor, yürürken adım atıyor.",
@@ -54,6 +60,12 @@ const NOTES_TR = {
 };
 
 const NOTES_EN = {
+  "0.9.8": [
+    "Together with Catail Convert: Convert on the toolbar after you select an area, and at the top of the queue panel.",
+    "Files converted in Catail Convert join the queue in one click; both apps wear the same cat and speak the same language.",
+    "The animal picker in Settings is a grid now: animals line up in rows instead of scrolling sideways.",
+    "The monkey swings on its tree and from the corner of the screen without an extra branch in its hands.",
+  ],
   "0.9.7": [
     "New animals: the frog and the capybara. Each one hides in a place of its own: the frog on a lily pad, the capybara in its hot tub, the monkey in a bush.",
     "The animals move like the real thing: they blink, breathe and take steps as they walk.",
@@ -103,21 +115,29 @@ const NOTES_EN = {
 };
 // Catail Convert's notes, in the same way.
 const CONVERT_NOTES_TR = {
+  "0.1.1": [
+    "Kuyruk uygulamasının adı her yerde Catail-SS.",
+    "Catail-SS 0.9.8 ile birlikte: ekran görüntüsünü Dönüştür ile kedi kutusuna gönder, kuyruk panelinin üstünden tümünü Convert'e aktar.",
+  ],
   "0.1.0": [
     "İlk sürüm (demo). Görsel, belge, veri ve arşiv dosyalarını buluta yüklemeden, bilgisayarında dönüştürür.",
     "PNG, JPG, WEBP, AVIF, ICO, SVG, BMP, TIFF; görselleri tek PDF'te birleştirme, PDF birleştirme ve bölme.",
     "JSON, CSV, YAML, TOML ve XML birbirine; Markdown'dan HTML ve PDF; ZIP ve TAR.GZ.",
     "Kedi kutusu (Alt+C), stüdyo penceresi ve panodan Ctrl+V. Ses ve video için FFmpeg yalnızca onaylarsan iner.",
-    "Catail ile birlikte: ekran görüntüsünü tek tıkla dönüştür, sonuçları kuyruğa ekle, kuyruğu buraya al.",
+    "Catail-SS ile birlikte: ekran görüntüsünü tek tıkla dönüştür, sonuçları kuyruğa ekle, kuyruğu buraya al.",
   ],
 };
 const CONVERT_NOTES_EN = {
+  "0.1.1": [
+    "The queue app is called Catail-SS everywhere.",
+    "Together with Catail-SS 0.9.8: send a screenshot to the cat box with Convert, and the whole queue to Convert from the top of its panel.",
+  ],
   "0.1.0": [
     "First release (demo). Converts images, documents, data and archives on your computer, without uploading them.",
     "PNG, JPG, WEBP, AVIF, ICO, SVG, BMP, TIFF; images into one PDF, merging and splitting PDFs.",
     "JSON, CSV, YAML, TOML and XML into each other; Markdown to HTML and PDF; ZIP and TAR.GZ.",
     "The cat box (Alt+C), the studio window and Ctrl+V from the clipboard. FFmpeg for audio and video downloads only if you agree.",
-    "Together with Catail: convert a screenshot in one click, add results to the queue, bring the queue in.",
+    "Together with Catail-SS: convert a screenshot in one click, add results to the queue, bring the queue in.",
   ],
 };
 
