@@ -5,6 +5,14 @@ import { loadReleases } from "./release.js";
 // What changed, in a few words, in each language. A release not listed here shows its notes
 // from GitHub.
 const NOTES_TR = {
+  "0.9.7": [
+    "Yeni hayvanlar: kurbağa ve kapibara. Her hayvan kendi yerine saklanıyor: kurbağa nilüfer yaprağına, kapibara sıcak küvetine, maymun çalılığa.",
+    "Hayvanlar gerçek gibi hareket ediyor: göz kırpıyor, nefes alıyor, yürürken adım atıyor.",
+    "Birden fazla monitörde tek seçim çerçevesi: seçimi yandaki ekrana uzatıp tek görüntü olarak alabilirsin.",
+    "Ayarlar kendiliğinden kaydediliyor; Genel sekmesi en üstte.",
+    "Uygulama içinden güncelleme: onay sorup ilerleme çubuğuyla indiriyor ve yeniden açılıyor.",
+    "Rozet büyütülünce tıklanamama sorunu ve görev çubuğundaki kedinin pencerelerin arkasında kalması düzeltildi.",
+  ],
   "0.9.6": [
     "Yeni hayvan: maymun. Ağacından muz koparıp yiyor, dalında sallanıyor, yaprakların arasına saklanıyor.",
     "Ara sıra ekranın üst köşesine zıplayıp asılıyor; başka bir maymunla muz savaşına girişiyor.",
@@ -46,6 +54,14 @@ const NOTES_TR = {
 };
 
 const NOTES_EN = {
+  "0.9.7": [
+    "New animals: the frog and the capybara. Each one hides in a place of its own: the frog on a lily pad, the capybara in its hot tub, the monkey in a bush.",
+    "The animals move like the real thing: they blink, breathe and take steps as they walk.",
+    "One selection across several monitors: stretch it onto the screen beside and take it as a single picture.",
+    "Settings save themselves; the General tab is now at the top.",
+    "Updating from inside the app: it asks first, downloads with a progress bar and opens again.",
+    "Fixed: the badge couldn't be clicked when made bigger, and the taskbar cat played behind windows.",
+  ],
   "0.9.6": [
     "A new animal: the monkey. It picks bananas off its tree, swings from a branch and hides in the leaves.",
     "Now and then it leaps up to the top corner of the screen and hangs there, or has a banana fight with another monkey.",
