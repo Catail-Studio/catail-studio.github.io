@@ -21,6 +21,7 @@ Sunucu tarafında kod çalışmaz; düz HTML, CSS ve JavaScript. Yollar görelid
 | Stüdyo | `index.html` | `en/index.html` |
 | Catail | `catail/index.html` | `en/catail/index.html` |
 | Sürümler | `catail/surumler.html` | `en/catail/releases.html` |
+| Catail Convert | `convert/index.html` | `en/convert/index.html` |
 
 ## Komutlar
 
@@ -43,6 +44,7 @@ npm run serve   # http://localhost:5180 adresinde açar
 - `design.css`: ortak tasarım dili (`ui-` ile başlayan sınıflar): yazı ölçeği, düğmeler, kartlar, sekmeler, üst menü, telefon menüsü, alt bilgi.
 - `style.css`: kedi renk temaları (`data-cat`), kediler, pati imleçleri, sahnelerin ortak parçaları.
 - `catail.css`: yalnız Catail sayfasına özgü düzen.
+- `convert.css`: Catail Convert sayfası ve ana sayfadaki kartı; dosyaların kedi kutusuna uçtuğu sahne (`site/partials/convert-scene.*.html`).
 - `ui.js`: sekmeler, menülerin kapanması, menüde bulunduğun sayfanın işaretlenmesi.
 
 ## Sayfa üretiminin kendiliğinden yaptıkları

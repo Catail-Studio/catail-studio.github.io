@@ -62,9 +62,9 @@
                 <img src="assets/icon-128.png" alt="" width="40" height="40" />
                 <span><strong>Catail</strong><span>Ekran görüntüsü, metin ve dosya kuyruğu</span></span>
               </a>
-              <a class="ui-nav__item ui-nav__item--soon" href="./#urunler">
-                <img src="assets/icon-128.png" alt="" width="40" height="40" />
-                <span><strong>Sıradaki kedi <span class="ui-badge ui-badge--soon">Yakında</span></strong><span>Stüdyonun ikinci küçük aracı</span></span>
+              <a class="ui-nav__item" href="convert/">
+                <img src="assets/convert/icon-128.png" alt="" width="40" height="40" />
+                <span><strong>Catail Convert <span class="ui-badge ui-badge--soon">Yakında</span></strong><span>Dosyaları buluta yüklemeden dönüştürür</span></span>
               </a>
             </div>
           </details>
@@ -91,6 +91,7 @@
             <summary aria-label="Menü"><span></span></summary>
             <nav class="ui-nav__sheet" aria-label="Site">
               <a href="catail/">Catail</a>
+              <a href="convert/">Catail Convert</a>
               <a href="catail/#ozellikler">Özellikler</a>
               <a href="gizlilik.html">Gizlilik</a>
               <a href="catail/#sss">Sorular</a>
@@ -109,7 +110,7 @@
           Senden hiçbir şey toplamıyoruz. Aşağıda her aracın ve bu sitenin neyi nerede tuttuğunu, internete ne zaman ve
           nereye bağlandığını tek tek yazdık.
         </p>
-        <p class="ui-doc__date">Son güncelleme: 13 Kasım 2026</p>
+        <p class="ui-doc__date">Son güncelleme: 14 Kasım 2026</p>
       </header>
 
       <section class="ui-card ui-doc__summary">
@@ -161,6 +162,32 @@
         </p>
       </section>
 
+      <section class="ui-doc__part" id="convert">
+        <h2>Catail Convert</h2>
+
+        <h3>Bilgisayarında tuttukları</h3>
+        <ul>
+          <li><strong>Ayarlar:</strong> uygulamanın kendi tarayıcı deposunda (<code>%LOCALAPPDATA%\com.catail.convert\</code>).</li>
+          <li>
+            <strong>Dönüştürdüğün dosyalar:</strong> Catail Convert özgün dosyayı değiştirmez, silmez ve üstüne yazmaz. Sonuç seçtiğin
+            klasöre ya da özgün dosyanın yanına yeni bir dosya olarak yazılır.
+          </li>
+          <li>
+            <strong>Panodan eklenenler:</strong> Ctrl+V ile eklenen görsel ya da metin geçici klasörde (<code>%TEMP%\catail-convert\</code>)
+            durur ve uygulama kapanınca silinir. Pano yalnızca uygulamada Ctrl+V'ye bastığında okunur.
+          </li>
+        </ul>
+
+        <h3>İnternete bağlandığı tek an</h3>
+        <p>
+          Dönüştürme tamamen çevrimdışıdır. Ses ya da video dönüştürmek istediğinde FFmpeg gerekir ve uygulamayla gelmez. Catail
+          Convert önce sorar; yalnızca <strong>İndir ve kur</strong>'a basarsan FFmpeg'in resmi statik Windows derlemesini
+          (<code>gyan.dev</code>, ffmpeg.org'un bağlantı verdiği adres) indirir, SHA-256 ile doğrular ve
+          <code>%APPDATA%\com.catail.convert\ffmpeg\</code> içine koyar. Bu istekte senden bir bilgi ya da dosya gönderilmez; her
+          bağlantıda olduğu gibi IP adresin o sunucuya görünür. Bilgisayarında zaten FFmpeg varsa hiç indirme yapılmaz.
+        </p>
+      </section>
+
       <section class="ui-doc__part" id="site">
         <h2>Bu web sitesi</h2>
         <ul>
@@ -208,7 +235,7 @@
             <h4>Ürünler</h4>
             <ul>
               <li><a href="catail/">Catail</a></li>
-              <li><a href="./#urunler">Yakında</a></li>
+              <li><a href="convert/">Catail Convert</a></li>
             </ul>
           </div>
           <div>

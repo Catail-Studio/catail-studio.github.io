@@ -18,6 +18,11 @@
       "tr": "catail/surumler.html",
       "en": "en/catail/releases.html",
       "product": "catail"
+    },
+    {
+      "tr": "convert/index.html",
+      "en": "en/convert/index.html",
+      "product": "convert"
     }
   ],
   "redirects": {

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="tr" data-cat="orange">
+  <head>
+    <!-- include head -->
+    <title>Catail Convert: dosyalarını buluta yüklemeden, kendi bilgisayarında dönüştür</title>
+    <meta
+      name="description"
+      content="Catail Convert görselleri, belgeleri, veri dosyalarını ve arşivleri tamamen çevrimdışı, kendi bilgisayarında dönüştüren ücretsiz ve açık kaynak Windows aracı. Dosyaların hiçbir sunucuya gitmez."
+    />
+    <link rel="stylesheet" href="{{root}}style.css" />
+    <link rel="stylesheet" href="{{root}}scenes.css" />
+    <link rel="stylesheet" href="{{root}}design.css" />
+    <link rel="stylesheet" href="{{root}}catail.css" />
+    <link rel="stylesheet" href="{{root}}convert.css" />
+    <script type="module" src="{{root}}app.js"></script>
+    <script type="module" src="{{root}}scenes.js"></script>
+    <script type="module" src="{{root}}ui.js"></script>
+  </head>
+  <body class="ui-page">
+    <a class="skip" href="#neler">Neleri dönüştürdüğüne geç</a>
+
+    <!-- include nav -->
+
+    <main id="ust">
+      <!-- ===== Top: the promise, and files dropping into the cat's box ===== -->
+      <section class="ui-container ui-hero ui-paws convert-hero">
+        <nav class="ui-crumbs" aria-label="Konum">
+          <a href="{{to:index.html}}">Catail Studio</a>
+          <span aria-current="page">Catail Convert</span>
+        </nav>
+        <h1 class="ui-title ui-title--hero">Buluta dosya yüklemeyin, cihazınızda ışık hızında dönüştürün.</h1>
+        <p class="ui-slogan"><span class="ui-slogan__paw" aria-hidden="true"></span>Ve bir kedisi var.<span class="ui-slogan__paw" aria-hidden="true"></span></p>
+        <p class="ui-lead">
+          Bir görseli küçültmek ya da bir JSON'u YAML'a çevirmek için dosyanı bilmediğin bir siteye yüklemene gerek yok. Catail Convert
+          görselleri, belgeleri, veri dosyalarını ve arşivleri kendi bilgisayarında, bütün işlemci çekirdekleriyle dönüştürür.
+          İnternet bağlantısı bile istemez.
+        </p>
+        <div class="ui-actions ui-actions--center">
+          <a class="ui-button ui-button--primary ui-button--large" href="https://github.com/Catail-Studio/catail-convert">
+            <!-- include github-icon -->
+            <span class="ui-button__text"><span>GitHub'da izle</span><small>İlk sürüm yakında</small></span>
+          </a>
+          <a class="ui-button ui-button--secondary" href="#neler">Neleri dönüştürür?</a>
+        </div>
+        <div class="convert-hero__stage">
+          <figure class="scene scene--w6" style="--loop: 10s; --freeze: -6.8s">
+            <!-- include convert-scene -->
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===== What it converts ===== -->
+      <section class="ui-section ui-container" id="neler">
+        <div class="ui-heading ui-heading--center">
+          <span class="ui-eyebrow">Biçimler</span>
+          <h2 class="ui-title">Sürükle, bırak, seç.</h2>
+          <p class="ui-lead">Dosyanın türüne bakar ve yalnızca anlamlı hedefleri gösterir. Karışık bıraktığın dosyaları kendisi gruplar.</p>
+        </div>
+        <div class="ui-grid ui-grid--3 convert-formats">
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" /><circle cx="9" cy="10" r="2" /><path d="m21 16-5-5-9 9" /></svg></span>
+            <h3>Görseller</h3>
+            <p class="convert-formats__list">PNG · JPG · WEBP · AVIF · SVG · ICO · BMP · TIFF</p>
+            <p>Kalite ayarı, oranı koruyarak küçültme, çok boyutlu ICO ve EXIF/GPS bilgilerini silme. Önce ve sonra boyutu yan yana.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h4" /></svg></span>
+            <h3>Belgeler</h3>
+            <p class="convert-formats__list">MD · TXT · HTML · PDF</p>
+            <p>Görselleri tek PDF'te birleştir, PDF'leri birleştir ya da sayfa aralığıyla böl. Markdown'dan HTML ve Türkçe karakterli PDF.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M8 3c-2 0-3 1-3 3v3c0 1.5-1 2.5-2 3 1 .5 2 1.5 2 3v3c0 2 1 3 3 3M16 3c2 0 3 1 3 3v3c0 1.5 1 2.5 2 3-1 .5-2 1.5-2 3v3c0 2-1 3-3 3" /></svg></span>
+            <h3>Veri dosyaları</h3>
+            <p class="convert-formats__list">JSON · CSV · YAML · TOML · XML</p>
+            <p>Her biri öbürüne, Markdown tabloya da. JSON'u küçült ya da düzenle, CSV ayırıcısını seç. Çıktı her zaman UTF-8.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M3 7h18v13H3zM3 7l2-3h14l2 3M10 11h4" /></svg></span>
+            <h3>Arşivler</h3>
+            <p class="convert-formats__list">ZIP · TAR.GZ</p>
+            <p>Dönüştürülen dosyaları tek tıkla paketle ya da bir arşivi öbür biçime çevir. Klasörleri de paketler.</p>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2" /><path d="m17 10 4-2v8l-4-2" /></svg></span>
+            <h3>Ses ve video</h3>
+            <p class="convert-formats__list">MP4 · MKV · MOV · WEBM · MP3 · WAV · FLAC · OGG</p>
+            <p>FFmpeg ile: videodan sesi ayıkla, çözünürlüğü düşür, paletli GIF yap. FFmpeg uygulamayla gelmez; ilk seferde sorar.</p>
+            <span class="ui-badge ui-badge--soon">İsteğe bağlı</span>
+          </div>
+          <div class="ui-card">
+            <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg></span>
+            <h3>Toplu ve hızlı</h3>
+            <p>Yüzlerce dosyayı aynı anda, bütün çekirdeklerle dönüştürür. Bozuk bir dosya yalnızca kendi satırında hata verir, gerisi devam eder.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Three ways in ===== -->
+      <section class="ui-section ui-section--tint" id="kullanim">
+        <div class="ui-container">
+          <div class="ui-heading ui-heading--center">
+            <span class="ui-eyebrow">Kullanım</span>
+            <h2 class="ui-title">Üç yoldan girer.</h2>
+          </div>
+          <div class="ui-grid ui-grid--3 convert-modes">
+            <div class="ui-card">
+              <span class="boxcat boxcat--small" aria-hidden="true"><span class="boxcat__head"></span><span class="boxcat__front"></span></span>
+              <h3>Kedi kutusu</h3>
+              <p>Tepsiden ya da <kbd>Alt</kbd>+<kbd>C</kbd> ile ekranın köşesinde açılır. Dosyaları kedinin üstüne bırak, çıkan baloncuklardan biçimi seç, bitti.</p>
+            </div>
+            <div class="ui-card">
+              <span class="ui-tile"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M8 13h8M8 16h5" /></svg></span>
+              <h3>Stüdyo penceresi</h3>
+              <p>Çok dosya için: her satırda hedef biçim ve boyut karşılaştırması (4,2 MB → 680 KB), kalite ayarı, çıktı klasörü ve ilerleme çubuğu.</p>
+            </div>
+            <div class="ui-card">
+              <span class="ui-tile"><svg viewBox="0 0 24 24"><path d="M9 4h6v3H9zM8 5H6v16h12V5h-2M9 13h6M9 17h4" /></svg></span>
+              <h3>Panodan</h3>
+              <p>Panoda bir görsel ya da JSON varken uygulamada <kbd>Ctrl</kbd>+<kbd>V</kbd>: dosya seçmeden listeye girer. Sonucu tek tıkla panoya geri kopyala.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Privacy ===== -->
+      <section class="ui-section ui-container" id="gizlilik">
+        <div class="ui-split">
+          <div class="ui-split__text">
+            <span class="ui-eyebrow">Gizlilik</span>
+            <h2 class="ui-title">Dosyaların bilgisayarından çıkmaz.</h2>
+            <p class="ui-lead">
+              Çevrimiçi dönüştürücüler dosyanı önce kendi sunucularına yükler. Catail Convert her şeyi senin işlemcinde yapar; telemetri
+              yok, hesap yok.
+            </p>
+            <ul class="ui-checks">
+              <li>Dönüştürme tamamen çevrimdışı</li>
+              <li>Telemetri, reklam ve hesap yok</li>
+              <li>İnternete tek bir durumda çıkar: ses/video için FFmpeg'i indirmeyi onaylarsan</li>
+              <li>FFmpeg resmi statik derlemedir (yaklaşık 110 MB) ve SHA-256 ile doğrulanır</li>
+            </ul>
+            <a class="ui-button ui-button--quiet" href="{{to:gizlilik.html}}">Gizlilik metninin tamamı</a>
+          </div>
+          <div class="ui-card">
+            <h3>Henüz yapamadıkları</h3>
+            <ul class="convert-limits">
+              <li>PDF sayfalarını görsele çevirmek: tam bir PDF çizici gerekir (pdfium ya da MuPDF, C/C++). Saf Rust ile çevrimdışı yapılamadığı için eklenmedi.</li>
+              <li>HTML'den PDF yalnızca metni aktarır; sayfa düzeni ve CSS taşınmaz.</li>
+              <li>Şimdilik yalnızca Windows 10 ve 11.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Open source ===== -->
+      <section class="ui-section ui-section--tint" id="kod">
+        <div class="ui-container ui-split">
+          <div class="ui-split__text">
+            <span class="ui-eyebrow">Açık kaynak</span>
+            <h2 class="ui-title">Kodu ortada.</h2>
+            <p class="ui-lead">
+              Catail Convert'in kodunun tamamı GitHub'da. Tauri 2 ile yazıldı: dönüştürme motorları Rust (image, lopdf, rayon), arayüz React ve
+              TypeScript. Catail'in kedileri ve temaları da onunla geliyor.
+            </p>
+            <p class="catail-license">Lisans: <a href="https://github.com/Catail-Studio/catail-convert/blob/main/LICENSE">MIT</a>. Ücretsiz kullanabilir, değiştirebilir ve dağıtabilirsin.</p>
+            <div class="ui-actions">
+              <a class="ui-button ui-button--secondary" href="https://github.com/Catail-Studio/catail-convert">
+                <!-- include github-icon -->
+                <span>Catail-Studio/catail-convert</span>
+              </a>
+            </div>
+          </div>
+          <div class="term" aria-label="Kaynak koddan derleme komutları">
+            <div class="term__bar"><i></i><i></i><i></i></div>
+            <pre><code><span class="term__c"># Node.js 20+, Rust ve Windows 10/11 gerekir</span>
+git clone https://github.com/Catail-Studio/catail-convert
+cd catail-convert
+npm install
+npm run tauri dev</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Last call ===== -->
+      <section class="ui-section ui-container" id="indir">
+        <div class="ui-cta">
+          <h2 class="ui-title">İlk sürüm yolda.</h2>
+          <p class="ui-lead">Kurulum dosyası yayımlanınca burada olacak. O zamana kadar GitHub'dan izleyebilir ya da kendin derleyebilirsin.</p>
+          <a class="ui-button ui-button--primary ui-button--large" href="https://github.com/Catail-Studio/catail-convert">
+            <!-- include github-icon -->
+            <span>GitHub'da izle</span>
+          </a>
+          <p class="convert-soon">Windows 10 ve 11 · ücretsiz · MIT</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- include footer -->
+  </body>
+</html>

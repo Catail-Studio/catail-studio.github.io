@@ -25,7 +25,7 @@
           We don't collect anything from you. Below, one by one: what each tool and this site keep and where, and when and
           where they go online.
         </p>
-        <p class="ui-doc__date">Last updated: November 13, 2026</p>
+        <p class="ui-doc__date">Last updated: November 14, 2026</p>
       </header>
 
       <section class="ui-card ui-doc__summary">
@@ -73,6 +73,33 @@
         <p>
           Apart from these, Catail doesn't go online. Text recognition (OCR) uses Windows' own engine, and QR codes are read on
           your device. If you choose to open the address in a QR code, your browser opens it; Catail doesn't visit it itself.
+        </p>
+      </section>
+
+      <section class="ui-doc__part" id="convert">
+        <h2>Catail Convert</h2>
+
+        <h3>What it keeps on your computer</h3>
+        <ul>
+          <li><strong>Settings:</strong> in the app's own browser storage (<code>%LOCALAPPDATA%\com.catail.convert\</code>).</li>
+          <li>
+            <strong>The files you convert:</strong> Catail Convert never changes, deletes or overwrites the original. The result is
+            written as a new file next to it or into the folder you chose.
+          </li>
+          <li>
+            <strong>Clipboard content:</strong> a picture or text added with Ctrl+V waits in the temp folder
+            (<code>%TEMP%\catail-convert\</code>) and is deleted when the app closes. The clipboard is read only when you press
+            Ctrl+V in the app.
+          </li>
+        </ul>
+
+        <h3>The one moment it goes online</h3>
+        <p>
+          Converting is fully offline. Audio and video need FFmpeg, which doesn't ship with the app. Catail Convert asks first; only
+          if you press <strong>Download and install</strong> does it download FFmpeg's official static Windows build
+          (<code>gyan.dev</code>, linked from ffmpeg.org), check it against its SHA-256 and put it in
+          <code>%APPDATA%\com.catail.convert\ffmpeg\</code>. Nothing about you and none of your files are sent; as with any
+          connection, that server sees your IP address. If FFmpeg is already on your computer, nothing is downloaded.
         </p>
       </section>
 

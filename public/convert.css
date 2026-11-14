@@ -1,0 +1,665 @@
+/* Catail Convert's page (convert/index.html and en/convert/), and its card on the studio's home
+   page: the files-into-the-cat-box scene and the few parts only it has. The rest is design.css,
+   style.css and scenes.css. Every loop in the scene runs for --loop with no delay, so --freeze
+   can stop it on one frame for visitors who ask for less motion (scenes.css). */
+
+/* ---------- Top ---------- */
+
+.convert-hero__stage {
+  width: min(1000px, 100%);
+  margin-top: var(--ui-6);
+  text-align: left;
+}
+
+.convert-hero__stage .scene {
+  margin: 0;
+}
+
+.convert-soon {
+  margin: 0;
+  color: var(--muted);
+  font: 700 14px/1.4 var(--ui-text);
+}
+
+/* ---------- The scene: files fly into the cat's box, converted files come out ---------- */
+
+.cv {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 4cqw;
+  min-height: 300px;
+  padding: 28px 4cqw;
+}
+
+.cv__files,
+.cv__out {
+  display: grid;
+  gap: 12px;
+}
+
+.cv-file,
+.cv-out {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  padding: 9px 12px;
+  border: var(--stroke);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--line);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.cv-file b,
+.cv-out b {
+  grid-row: 1 / 3;
+  min-width: 46px;
+  padding: 6px 4px;
+  border-radius: 8px;
+  background: var(--bg-2);
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.cv-out b {
+  background: var(--accent);
+  color: var(--on-brand);
+}
+
+.cv-file span,
+.cv-out span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cv-file small,
+.cv-out small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cv-out em {
+  color: #2f8f5b;
+  font-style: normal;
+}
+
+[data-cat="black"] .cv-out em {
+  color: #8fe0b0;
+}
+
+/* Each file in turn flies over to the box and drops in. */
+.cv-file {
+  animation: cv-fly var(--loop) var(--out) infinite;
+}
+
+.cv-file--2 {
+  animation-name: cv-fly-2;
+}
+
+.cv-file--3 {
+  animation-name: cv-fly-3;
+}
+
+@keyframes cv-fly {
+  0%,
+  8% {
+    opacity: 1;
+    transform: none;
+  }
+  16% {
+    opacity: 1;
+    transform: translate(33cqw, 2cqw) scale(0.55) rotate(8deg);
+  }
+  18%,
+  94% {
+    opacity: 0;
+    transform: translate(33cqw, 4cqw) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cv-fly-2 {
+  0%,
+  12% {
+    opacity: 1;
+    transform: none;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(33cqw, -2cqw) scale(0.55) rotate(-6deg);
+  }
+  22%,
+  94% {
+    opacity: 0;
+    transform: translate(33cqw, 0) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cv-fly-3 {
+  0%,
+  16% {
+    opacity: 1;
+    transform: none;
+  }
+  24% {
+    opacity: 1;
+    transform: translate(33cqw, -7cqw) scale(0.55) rotate(10deg);
+  }
+  26%,
+  94% {
+    opacity: 0;
+    transform: translate(33cqw, -5cqw) scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The box in the middle, with its cat. */
+.cv__box {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.cv__cat {
+  position: relative;
+  width: min(100%, 220px);
+  aspect-ratio: 342 / 256;
+  animation: cv-shake var(--loop) linear infinite;
+}
+
+.cv__glow {
+  position: absolute;
+  inset: 10% -6% -4%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(249, 155, 62, 0.6), rgba(249, 155, 62, 0));
+  animation: cv-glow var(--loop) var(--out) infinite;
+}
+
+.cv__head,
+.cv__front {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.cv__head {
+  background-image: var(--cat-head);
+  animation: cv-head var(--loop) var(--pop) infinite;
+}
+
+.cv__front {
+  z-index: 2;
+  background-image: url("assets/cats/box-front.png");
+}
+
+.cv__paw {
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  width: 11.5%;
+  aspect-ratio: 38 / 35;
+  background: var(--cat-foot-left) center / contain no-repeat;
+  opacity: 0;
+  animation: cv-paw-l var(--loop) var(--out) infinite;
+}
+
+.cv__paw--l {
+  left: 21%;
+}
+
+.cv__paw--r {
+  left: 67%;
+  background-image: var(--cat-foot-right);
+  animation-name: cv-paw-r;
+}
+
+/* Dust while it works. */
+.cv__dust i {
+  position: absolute;
+  z-index: 4;
+  top: 28%;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg-3);
+  box-shadow: inset -3px -3px 0 var(--accent);
+  opacity: 0;
+  animation: cv-dust var(--loop) var(--out) infinite;
+}
+
+.cv__dust i:nth-child(1) {
+  left: 12%;
+  --dx: -26px;
+}
+
+.cv__dust i:nth-child(2) {
+  left: 34%;
+  --dx: -8px;
+  animation-name: cv-dust-2;
+}
+
+.cv__dust i:nth-child(3) {
+  left: 54%;
+  --dx: 10px;
+}
+
+.cv__dust i:nth-child(4) {
+  left: 74%;
+  --dx: 26px;
+  animation-name: cv-dust-2;
+}
+
+/* Format bubbles pop out above the box; one is picked. */
+.cv__bubbles {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+  translate: -50% 0;
+}
+
+.cv__bubbles i {
+  padding: 4px 10px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font: 800 12px/1.2 var(--ui-text);
+  font-style: normal;
+  opacity: 0;
+  animation: cv-bubble var(--loop) var(--pop) infinite;
+}
+
+.cv__bubbles i.is-pick {
+  animation-name: cv-bubble-pick;
+}
+
+.cv__bar {
+  width: min(100%, 180px);
+  height: 10px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.cv__bar i {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, var(--accent) 0 6px, var(--brand) 6px 12px);
+  transform-origin: 0 50%;
+  animation: cv-fill var(--loop) linear infinite;
+}
+
+.cv__note {
+  color: var(--muted);
+  font: 800 12.5px/1.2 var(--ui-text);
+  text-align: center;
+}
+
+/* The results pop out on the right, one by one. */
+.cv-out {
+  opacity: 0;
+  animation: cv-out var(--loop) var(--pop) infinite;
+}
+
+.cv-out--2 {
+  animation-name: cv-out-2;
+}
+
+.cv-out--3 {
+  animation-name: cv-out-3;
+}
+
+@keyframes cv-head {
+  0%,
+  6% {
+    transform: none;
+  }
+  9%,
+  28% {
+    transform: translateY(-12%);
+  }
+  34%,
+  62% {
+    transform: translateY(22%);
+  }
+  68%,
+  92% {
+    transform: translateY(-6%);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes cv-paw-l {
+  0%,
+  6%,
+  30%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+  9%,
+  27% {
+    opacity: 1;
+    transform: translate(-20%, -60%) rotate(-18deg);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-20%, -75%) rotate(-4deg);
+  }
+}
+
+@keyframes cv-paw-r {
+  0%,
+  6%,
+  30%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+  9%,
+  27% {
+    opacity: 1;
+    transform: translate(20%, -60%) rotate(18deg);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(20%, -75%) rotate(4deg);
+  }
+}
+
+@keyframes cv-glow {
+  0%,
+  6%,
+  32%,
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  10%,
+  28% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cv-shake {
+  0%,
+  37%,
+  62%,
+  100% {
+    transform: none;
+  }
+  39%,
+  43%,
+  47%,
+  51%,
+  55%,
+  59% {
+    transform: rotate(-2deg) translateX(-1.5%);
+  }
+  41%,
+  45%,
+  49%,
+  53%,
+  57%,
+  61% {
+    transform: rotate(2deg) translateX(1.5%);
+  }
+}
+
+@keyframes cv-dust {
+  0%,
+  38% {
+    opacity: 0;
+    transform: translate(0, 30%) scale(0.3);
+  }
+  42% {
+    opacity: 0.95;
+  }
+  48%,
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), -90%) scale(1.1);
+  }
+}
+
+@keyframes cv-dust-2 {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translate(0, 30%) scale(0.3);
+  }
+  50% {
+    opacity: 0.95;
+  }
+  56%,
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), -90%) scale(1.1);
+  }
+}
+
+@keyframes cv-bubble {
+  0%,
+  27% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.6);
+  }
+  30%,
+  36% {
+    opacity: 1;
+    transform: none;
+  }
+  38%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.8);
+  }
+}
+
+@keyframes cv-bubble-pick {
+  0%,
+  27% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.6);
+    background: var(--surface);
+  }
+  30% {
+    opacity: 1;
+    transform: none;
+    background: var(--surface);
+  }
+  33%,
+  36% {
+    opacity: 1;
+    transform: scale(1.12);
+    background: var(--accent);
+  }
+  40%,
+  100% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.5);
+    background: var(--accent);
+  }
+}
+
+@keyframes cv-fill {
+  0%,
+  38% {
+    transform: scaleX(0);
+  }
+  62%,
+  92% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes cv-out {
+  0%,
+  62% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.6);
+  }
+  66%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  98%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+@keyframes cv-out-2 {
+  0%,
+  66% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.6);
+  }
+  70%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  98%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+@keyframes cv-out-3 {
+  0%,
+  70% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.6);
+  }
+  74%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  98%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+/* ---------- What it converts ---------- */
+
+.convert-formats {
+  margin-top: var(--ui-6);
+}
+
+.convert-formats .ui-card {
+  align-content: start;
+}
+
+.convert-formats__list {
+  margin: 0;
+  color: var(--ink);
+  font: 800 13px/1.6 var(--ui-text);
+  letter-spacing: 0.03em;
+}
+
+.convert-formats .ui-badge {
+  justify-self: start;
+}
+
+/* ---------- Three ways in ---------- */
+
+.convert-modes kbd {
+  padding: 1px 7px;
+  border: 2px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  font: 800 13px/1.4 var(--ui-text);
+}
+
+/* ---------- Honest limits ---------- */
+
+.convert-limits {
+  display: grid;
+  gap: var(--ui-3);
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+/* ---------- The card on the studio's home page ---------- */
+
+.studio-feature__scene {
+  /* scenes.css spans a scene over two columns; here it is the card's second column. */
+  grid-column: auto;
+  margin: 0;
+}
+
+.studio-feature__scene .cv {
+  min-height: 240px;
+  padding: 26px 3cqw 20px;
+}
+
+.studio-feature__scene .cv-file span,
+.studio-feature__scene .cv-out span {
+  display: none;
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 720px) {
+  .cv {
+    gap: 3cqw;
+    padding: 34px 3cqw 20px;
+  }
+
+  .cv-file,
+  .cv-out {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .cv-file b,
+  .cv-out b {
+    grid-row: auto;
+  }
+
+  .cv-file span,
+  .cv-out span,
+  .cv__note {
+    display: none;
+  }
+}

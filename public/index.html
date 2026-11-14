@@ -28,7 +28,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Catail Studio" />
     <meta property="og:title" content="Catail Studio: Windows için kedili küçük araçlar" />
-    <meta property="og:description" content="Catail Studio, Windows için açık kaynaklı, reklamsız, hesap istemeyen ve bilgisayarında yerel çalışan küçük araçlar yapar. İlki Catail: ekran görüntülerini sıraya diz, tek Ctrl+V ile yapıştır." />
+    <meta property="og:description" content="Catail Studio, Windows için açık kaynaklı, reklamsız, hesap istemeyen ve bilgisayarında yerel çalışan küçük araçlar yapar. Catail ekran görüntülerini sıraya dizer, Catail Convert dosyaları buluta yüklemeden dönüştürür." />
     <meta property="og:url" content="https://catail-studio.github.io/" />
     <meta property="og:image" content="https://catail-studio.github.io/assets/share/studio-tr.png" />
     <meta property="og:image:width" content="1200" />
@@ -50,12 +50,15 @@
     <title>Catail Studio: Windows için kedili küçük araçlar</title>
     <meta
       name="description"
-      content="Catail Studio, Windows için açık kaynaklı, reklamsız, hesap istemeyen ve bilgisayarında yerel çalışan küçük araçlar yapar. İlki Catail: ekran görüntülerini sıraya diz, tek Ctrl+V ile yapıştır."
+      content="Catail Studio, Windows için açık kaynaklı, reklamsız, hesap istemeyen ve bilgisayarında yerel çalışan küçük araçlar yapar. Catail ekran görüntülerini sıraya dizer, Catail Convert dosyaları buluta yüklemeden dönüştürür."
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="design.css" />
+    <link rel="stylesheet" href="scenes.css" />
     <link rel="stylesheet" href="studio.css" />
+    <link rel="stylesheet" href="convert.css" />
     <script type="module" src="app.js"></script>
+    <script type="module" src="scenes.js"></script>
     <script type="module" src="ui.js"></script>
   </head>
   <body class="ui-page">
@@ -74,9 +77,9 @@
                 <img src="assets/icon-128.png" alt="" width="40" height="40" />
                 <span><strong>Catail</strong><span>Ekran görüntüsü, metin ve dosya kuyruğu</span></span>
               </a>
-              <a class="ui-nav__item ui-nav__item--soon" href="./#urunler">
-                <img src="assets/icon-128.png" alt="" width="40" height="40" />
-                <span><strong>Sıradaki kedi <span class="ui-badge ui-badge--soon">Yakında</span></strong><span>Stüdyonun ikinci küçük aracı</span></span>
+              <a class="ui-nav__item" href="convert/">
+                <img src="assets/convert/icon-128.png" alt="" width="40" height="40" />
+                <span><strong>Catail Convert <span class="ui-badge ui-badge--soon">Yakında</span></strong><span>Dosyaları buluta yüklemeden dönüştürür</span></span>
               </a>
             </div>
           </details>
@@ -103,6 +106,7 @@
             <summary aria-label="Menü"><span></span></summary>
             <nav class="ui-nav__sheet" aria-label="Site">
               <a href="catail/">Catail</a>
+              <a href="convert/">Catail Convert</a>
               <a href="catail/#ozellikler">Özellikler</a>
               <a href="gizlilik.html">Gizlilik</a>
               <a href="catail/#sss">Sorular</a>
@@ -148,8 +152,8 @@
       <section class="ui-section ui-container" id="urunler">
         <div class="ui-heading">
           <span class="ui-eyebrow">Ürünler</span>
-          <h2 class="ui-title">İlk kedimiz: Catail.</h2>
-          <p class="ui-lead">Ekran görüntülerini, metinleri ve dosyaları sıraya dizer; tek Ctrl+V ile hepsini aldığın sırayla yapıştırır.</p>
+          <h2 class="ui-title">Kedilerimiz.</h2>
+          <p class="ui-lead">Her biri tek bir işi iyi yapan, bilgisayarında yerel çalışan küçük araçlar.</p>
         </div>
 
         <article class="ui-card studio-feature">
@@ -178,15 +182,59 @@
           </a>
         </article>
 
-        <div class="ui-grid ui-grid--2 studio-next">
-          <div class="ui-card ui-card--product ui-card--soon">
-            <div class="ui-card__top">
-              <img class="ui-card__icon" src="assets/icon-128.png" alt="" width="56" height="56" />
-              <span class="ui-badge ui-badge--soon">Yakında</span>
+        <article class="ui-card studio-feature studio-feature--convert">
+          <div class="studio-feature__text">
+            <div class="studio-feature__name">
+              <img src="assets/convert/icon-128.png" alt="" width="56" height="56" />
+              <div>
+                <h3>Catail Convert</h3>
+                <span>Windows 10 ve 11 · ücretsiz · MIT · <span class="ui-badge ui-badge--soon">Yakında</span></span>
+              </div>
             </div>
-            <h3>Sıradaki kedi</h3>
-            <p>Stüdyonun ikinci küçük aracı üzerinde çalışıyoruz. Hazır olunca burada olacak.</p>
+            <ul class="ui-checks">
+              <li>Görsel, belge, veri ve arşiv; buluta yüklemeden, bilgisayarında</li>
+              <li>PNG, WEBP, AVIF, ICO, PDF, JSON, YAML, CSV, ZIP ve fazlası</li>
+              <li>Kedi kutusuna bırak, biçimi seç; toplu dönüştürmede bütün çekirdekler</li>
+              <li>Ses ve video için FFmpeg, yalnızca sen onaylarsan</li>
+            </ul>
+            <div class="ui-actions">
+              <a class="ui-button ui-button--primary" href="convert/">İncele</a>
+              <a class="ui-button ui-button--quiet" href="https://github.com/Catail-Studio/catail-convert">GitHub'da izle</a>
+            </div>
           </div>
+          <figure class="scene studio-feature__scene" style="--loop: 10s; --freeze: -6.8s">
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><span>Catail Convert</span><span class="win__dots"><i></i><i></i><i></i></span></div>
+              <div class="win__body cv">
+                <div class="cv__files">
+                  <span class="cv-file cv-file--1"><b>PNG</b><span>tatil.png</span><small>4,2 MB</small></span>
+                  <span class="cv-file cv-file--2"><b>JSON</b><span>veriler.json</span><small>18 KB</small></span>
+                  <span class="cv-file cv-file--3"><b>MD</b><span>notlar.md</span><small>6 KB</small></span>
+                </div>
+                <div class="cv__box">
+                  <span class="cv__bubbles"><i>JPG</i><i class="is-pick">WEBP</i><i>PDF</i></span>
+                  <span class="cv__cat">
+                    <span class="cv__glow"></span>
+                    <span class="cv__head"></span>
+                    <span class="cv__paw cv__paw--l"></span>
+                    <span class="cv__paw cv__paw--r"></span>
+                    <span class="cv__front"></span>
+                    <span class="cv__dust"><i></i><i></i><i></i><i></i></span>
+                  </span>
+                  <span class="cv__bar"><i></i></span>
+                  <span class="cv__note">Sunucuya hiçbir şey gitmez</span>
+                </div>
+                <div class="cv__out">
+                  <span class="cv-out cv-out--1"><b>WEBP</b><span>tatil.webp</span><small>4,2 MB → 680 KB <em>−84%</em></small></span>
+                  <span class="cv-out cv-out--2"><b>YAML</b><span>veriler.yaml</span><small>15 KB</small></span>
+                  <span class="cv-out cv-out--3"><b>PDF</b><span>notlar.pdf</span><small>48 KB</small></span>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </article>
+
+        <div class="studio-next">
           <a class="ui-card ui-card--product ui-card--soon ui-card--hover" href="https://github.com/Catail-Studio/catail-ss/issues">
             <div class="ui-card__top">
               <img class="ui-card__icon" src="assets/icon-128.png" alt="" width="56" height="56" />
@@ -267,7 +315,7 @@
             <h4>Ürünler</h4>
             <ul>
               <li><a href="catail/">Catail</a></li>
-              <li><a href="./#urunler">Yakında</a></li>
+              <li><a href="convert/">Catail Convert</a></li>
             </ul>
           </div>
           <div>

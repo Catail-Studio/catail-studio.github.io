@@ -28,7 +28,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Catail Studio" />
     <meta property="og:title" content="Catail Studio: small Windows tools, with cats" />
-    <meta property="og:description" content="Catail Studio makes small Windows tools that are open source, free of ads, need no account and run on your own computer. The first is Catail: queue up your screenshots, paste them all with one Ctrl+V." />
+    <meta property="og:description" content="Catail Studio makes small Windows tools that are open source, free of ads, need no account and run on your own computer. Catail queues up your screenshots; Catail Convert converts files without uploading them." />
     <meta property="og:url" content="https://catail-studio.github.io/en/" />
     <meta property="og:image" content="https://catail-studio.github.io/assets/share/studio-en.png" />
     <meta property="og:image:width" content="1200" />
@@ -50,12 +50,15 @@
     <title>Catail Studio: small Windows tools, with cats</title>
     <meta
       name="description"
-      content="Catail Studio makes small Windows tools that are open source, free of ads, need no account and run on your own computer. The first is Catail: queue up your screenshots, paste them all with one Ctrl+V."
+      content="Catail Studio makes small Windows tools that are open source, free of ads, need no account and run on your own computer. Catail queues up your screenshots; Catail Convert converts files without uploading them."
     />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../design.css" />
+    <link rel="stylesheet" href="../scenes.css" />
     <link rel="stylesheet" href="../studio.css" />
+    <link rel="stylesheet" href="../convert.css" />
     <script type="module" src="../app.js"></script>
+    <script type="module" src="../scenes.js"></script>
     <script type="module" src="../ui.js"></script>
   </head>
   <body class="ui-page">
@@ -74,9 +77,9 @@
                 <img src="../assets/icon-128.png" alt="" width="40" height="40" />
                 <span><strong>Catail</strong><span>A queue for screenshots, text and files</span></span>
               </a>
-              <a class="ui-nav__item ui-nav__item--soon" href="./#products">
-                <img src="../assets/icon-128.png" alt="" width="40" height="40" />
-                <span><strong>The next cat <span class="ui-badge ui-badge--soon">Soon</span></strong><span>The studio's second small tool</span></span>
+              <a class="ui-nav__item" href="convert/">
+                <img src="../assets/convert/icon-128.png" alt="" width="40" height="40" />
+                <span><strong>Catail Convert <span class="ui-badge ui-badge--soon">Soon</span></strong><span>Converts files without uploading them</span></span>
               </a>
             </div>
           </details>
@@ -103,6 +106,7 @@
             <summary aria-label="Menu"><span></span></summary>
             <nav class="ui-nav__sheet" aria-label="Site">
               <a href="catail/">Catail</a>
+              <a href="convert/">Catail Convert</a>
               <a href="catail/#features">Features</a>
               <a href="privacy.html">Privacy</a>
               <a href="catail/#faq">FAQ</a>
@@ -148,8 +152,8 @@
       <section class="ui-section ui-container" id="products">
         <div class="ui-heading">
           <span class="ui-eyebrow">Products</span>
-          <h2 class="ui-title">Our first cat: Catail.</h2>
-          <p class="ui-lead">It queues up your screenshots, text and files, then pastes them all in the order you took them with one Ctrl+V.</p>
+          <h2 class="ui-title">Our cats.</h2>
+          <p class="ui-lead">Small tools that each do one job well, running on your own computer.</p>
         </div>
 
         <article class="ui-card studio-feature">
@@ -178,15 +182,59 @@
           </a>
         </article>
 
-        <div class="ui-grid ui-grid--2 studio-next">
-          <div class="ui-card ui-card--product ui-card--soon">
-            <div class="ui-card__top">
-              <img class="ui-card__icon" src="../assets/icon-128.png" alt="" width="56" height="56" />
-              <span class="ui-badge ui-badge--soon">Coming soon</span>
+        <article class="ui-card studio-feature studio-feature--convert">
+          <div class="studio-feature__text">
+            <div class="studio-feature__name">
+              <img src="../assets/convert/icon-128.png" alt="" width="56" height="56" />
+              <div>
+                <h3>Catail Convert</h3>
+                <span>Windows 10 and 11 · free · MIT · <span class="ui-badge ui-badge--soon">Coming soon</span></span>
+              </div>
             </div>
-            <h3>The next cat</h3>
-            <p>We're working on the studio's second small tool. It will show up here when it's ready.</p>
+            <ul class="ui-checks">
+              <li>Images, documents, data and archives, on your computer, never uploaded</li>
+              <li>PNG, WEBP, AVIF, ICO, PDF, JSON, YAML, CSV, ZIP and more</li>
+              <li>Drop on the cat box, pick a format; batches use every core</li>
+              <li>FFmpeg for audio and video, only if you say so</li>
+            </ul>
+            <div class="ui-actions">
+              <a class="ui-button ui-button--primary" href="convert/">Take a look</a>
+              <a class="ui-button ui-button--quiet" href="https://github.com/Catail-Studio/catail-convert">Watch on GitHub</a>
+            </div>
           </div>
+          <figure class="scene studio-feature__scene" style="--loop: 10s; --freeze: -6.8s">
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><span>Catail Convert</span><span class="win__dots"><i></i><i></i><i></i></span></div>
+              <div class="win__body cv">
+                <div class="cv__files">
+                  <span class="cv-file cv-file--1"><b>PNG</b><span>holiday.png</span><small>4.2 MB</small></span>
+                  <span class="cv-file cv-file--2"><b>JSON</b><span>data.json</span><small>18 KB</small></span>
+                  <span class="cv-file cv-file--3"><b>MD</b><span>notes.md</span><small>6 KB</small></span>
+                </div>
+                <div class="cv__box">
+                  <span class="cv__bubbles"><i>JPG</i><i class="is-pick">WEBP</i><i>PDF</i></span>
+                  <span class="cv__cat">
+                    <span class="cv__glow"></span>
+                    <span class="cv__head"></span>
+                    <span class="cv__paw cv__paw--l"></span>
+                    <span class="cv__paw cv__paw--r"></span>
+                    <span class="cv__front"></span>
+                    <span class="cv__dust"><i></i><i></i><i></i><i></i></span>
+                  </span>
+                  <span class="cv__bar"><i></i></span>
+                  <span class="cv__note">Nothing goes to a server</span>
+                </div>
+                <div class="cv__out">
+                  <span class="cv-out cv-out--1"><b>WEBP</b><span>holiday.webp</span><small>4.2 MB → 680 KB <em>−84%</em></small></span>
+                  <span class="cv-out cv-out--2"><b>YAML</b><span>data.yaml</span><small>15 KB</small></span>
+                  <span class="cv-out cv-out--3"><b>PDF</b><span>notes.pdf</span><small>48 KB</small></span>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </article>
+
+        <div class="studio-next">
           <a class="ui-card ui-card--product ui-card--soon ui-card--hover" href="https://github.com/Catail-Studio/catail-ss/issues">
             <div class="ui-card__top">
               <img class="ui-card__icon" src="../assets/icon-128.png" alt="" width="56" height="56" />
@@ -267,7 +315,7 @@
             <h4>Products</h4>
             <ul>
               <li><a href="catail/">Catail</a></li>
-              <li><a href="./#products">Coming soon</a></li>
+              <li><a href="convert/">Catail Convert</a></li>
             </ul>
           </div>
           <div>

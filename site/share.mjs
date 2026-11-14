@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, "..", "public", "assets", "share");
-const KINDS = ["studio", "catail"];
+const KINDS = ["studio", "catail", "convert"];
 const LANGS = ["tr", "en"];
 
 const browsers = [
