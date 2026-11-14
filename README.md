@@ -22,6 +22,7 @@ Sunucu tarafında kod çalışmaz; düz HTML, CSS ve JavaScript. Yollar görelid
 | Catail | `catail/index.html` | `en/catail/index.html` |
 | Sürümler | `catail/surumler.html` | `en/catail/releases.html` |
 | Catail Convert | `convert/index.html` | `en/convert/index.html` |
+| Convert sürümleri | `convert/surumler.html` | `en/convert/releases.html` |
 
 ## Komutlar
 
