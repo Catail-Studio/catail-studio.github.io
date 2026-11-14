@@ -2,4 +2,4 @@
 User-agent: *
 Disallow: /_tasarim.html
 
-Sitemap: https://catail-studio.github.io/sitemap.xml
+Sitemap: https://catailstudio.com/sitemap.xml

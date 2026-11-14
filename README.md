@@ -2,7 +2,7 @@
 
 Sitenin bütün dosyaları bu klasörde. Catail uygulamasının deposundan (`clipqueue`) ayrı tutulur.
 
-Depo: [Catail-Studio/catail-studio.github.io](https://github.com/Catail-Studio/catail-studio.github.io). `main` dalına gönderilen her değişiklik https://catail-studio.github.io/ adresinde kendiliğinden yayınlanır (`.github/workflows/pages.yml`).
+Depo: [Catail-Studio/catail-studio.github.io](https://github.com/Catail-Studio/catail-studio.github.io). `main` dalına gönderilen her değişiklik https://catailstudio.com/ adresinde kendiliğinden yayınlanır (`.github/workflows/pages.yml`). Alan adı GitHub Pages ayarında tanımlı; DNS turkticaret müşteri panelinde (A kayıtları 185.199.108-111.153, www CNAME catail-studio.github.io). Eski catail-studio.github.io adresi yeni alan adına yönlenir.
 
 | Klasör / dosya | Ne işe yarar |
 |---|---|
