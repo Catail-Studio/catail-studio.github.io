@@ -161,7 +161,7 @@ async function main() {
     const [before, linkText, after] = t.releasesFailed;
     status.replaceChildren(
       before,
-      Object.assign(element("a", "", linkText), { href: "https://github.com/umutugrasan/catail/releases" }),
+      Object.assign(element("a", "", linkText), { href: "https://github.com/Catail-Studio/catail-ss/releases" }),
       after,
     );
     return;

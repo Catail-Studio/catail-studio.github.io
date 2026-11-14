@@ -2,7 +2,7 @@
 // header for release files) and the file name carries the version, so this asks the GitHub API.
 // Whatever goes wrong, download links keep RELEASES_PAGE, which always shows the latest release.
 
-const REPO = "umutugrasan/catail";
+const REPO = "Catail-Studio/catail-ss";
 const API_URL = `https://api.github.com/repos/${REPO}/releases?per_page=100`;
 const DOWNLOAD_PREFIX = `https://github.com/${REPO}/releases/download/`;
 const INSTALLER = /^catail[_-]v?(\d+\.\d+\.\d+)[_-]x64-setup\.exe$/i;
